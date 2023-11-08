@@ -44,7 +44,7 @@ function DisplayRoute(){
 
 
 
-<ContextStore>
+
    <Routes>
        <Route path="/" element={<HomeCompo/>}>
        
@@ -70,7 +70,7 @@ function DisplayRoute(){
         </Route> 
    </Routes>
    
-   </ContextStore>
+
    
    
    </BrowserRouter>
