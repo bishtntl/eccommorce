@@ -3,7 +3,7 @@ import '../Css/Sport.css'
 import { NavLink } from "react-router-dom"
 import FooterCompo from "./Footer"
 
-function GroceriesCompo(){
+function SportToyCompo(){
     const [data,setData]=useState([])
 
     useEffect (()=>{
@@ -56,4 +56,4 @@ function GroceriesCompo(){
         </>
     )
 }
-export default GroceriesCompo
+export default SportToyCompo

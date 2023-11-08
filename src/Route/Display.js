@@ -3,7 +3,7 @@ import HomeCompo from "../Component/Home"
 import GroceriesCompo from "../Component/Groceries"
 import FashionCompo from "../Component/Fashion"
 import PremiumCompo from "../Component/Premium"
-import Sport_Toy from "../Component/SportToy"
+import SportToyCompo from "../Component/SportToy"
 import "../Css/Rou.css"
 // import TeaCompo from "../Component/Sub/Tea"
 // import CoffeCompo from "../Component/Sub/Coffee"
@@ -63,7 +63,7 @@ function DisplayRoute(){
        {/* <Route path="" element={<PearCompo/>}></Route>
        <Route path="coffee" element={<AppleCompo/>}></Route> */}
        </Route>
-       <Route path="/sport" element={<Sport_Toy/>}>
+       <Route path="/sport" element={<SportToyCompo/>}>
        {/* <Route path="tea" element={<ToyCompo/>}></Route>
        <Route path="coffee" element={<BabyToyCompo/>}></Route> */}
         
