@@ -91,7 +91,7 @@
 // export default DetailsCompo;
 import { useEffect, useState} from "react"
 import '../Css/Fashion.css'
-import { NavLink, useParams } from "react-router-dom"
+import {  useParams } from "react-router-dom"
 import axios from "axios"
 function DetailsCompo(){
     const [data,setData]=useState([])

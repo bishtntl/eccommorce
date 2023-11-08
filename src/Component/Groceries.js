@@ -2,7 +2,7 @@ import { useEffect, useState } from "react"
 
 import '../Css/Groceries.css'
 import { NavLink } from "react-router-dom"
-import FooterCompo from "./Footer"
+
 
 function GroceriesCompo(){
     const [data,setData]=useState([])
