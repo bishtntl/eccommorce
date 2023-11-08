@@ -4,19 +4,15 @@ import GroceriesCompo from "../Component/Groceries"
 import FashionCompo from "../Component/Fashion"
 import PremiumCompo from "../Component/Premium"
 import Sport_Toy from "../Component/SportToy"
-
-{/* <link href="https://fonts.googleapis.com/css2?family=Secular+One&display=swap" rel="stylesheet"></link> */}
-
 import "../Css/Rou.css"
-import ContextStore from "../store/store"
-import TeaCompo from "../Component/Sub/Tea"
-import CoffeCompo from "../Component/Sub/Coffee"
-import MenCompo from "../Component/Sub/Men"
-import WomenCompo from "../Component/Sub/Women"
-import PearCompo from "../Component/Sub/pears"
-import AppleCompo from "../Component/Sub/Apple"
-import ToyCompo from "../Component/Sub/Toy"
-import BabyToyCompo from "../Component/Sub/BabyToy"
+// import TeaCompo from "../Component/Sub/Tea"
+// import CoffeCompo from "../Component/Sub/Coffee"
+// import MenCompo from "../Component/Sub/Men"
+// import WomenCompo from "../Component/Sub/Women"
+// import PearCompo from "../Component/Sub/pears"
+// import AppleCompo from "../Component/Sub/Apple"
+// import ToyCompo from "../Component/Sub/Toy"
+// import BabyToyCompo from "../Component/Sub/BabyToy"
 
 
 function DisplayRoute(){
@@ -54,22 +50,22 @@ function DisplayRoute(){
        
        </Route>
        <Route path="/groceries" element={<GroceriesCompo/>}>
-       <Route path="tea" element={<TeaCompo/>}></Route>
-       <Route path="coffee" element={<CoffeCompo/>}></Route>
+       {/* <Route path="tea" element={<TeaCompo/>}></Route>
+       <Route path="coffee" element={<CoffeCompo/>}></Route> */}
        </Route>
        <Route path="/fashion" element={<FashionCompo/>}>
 
-       <Route path="men" element={<MenCompo/>}></Route>
-       <Route path="women" element={<WomenCompo/>}></Route>
+       {/* <Route path="men" element={<MenCompo/>}></Route>
+       <Route path="women" element={<WomenCompo/>}></Route> */}
        </Route>
        <Route path="/premium" element={<PremiumCompo/>}>
         
-       <Route path="" element={<PearCompo/>}></Route>
-       <Route path="coffee" element={<AppleCompo/>}></Route>
+       {/* <Route path="" element={<PearCompo/>}></Route>
+       <Route path="coffee" element={<AppleCompo/>}></Route> */}
        </Route>
        <Route path="/sport" element={<Sport_Toy/>}>
-       <Route path="tea" element={<ToyCompo/>}></Route>
-       <Route path="coffee" element={<BabyToyCompo/>}></Route>
+       {/* <Route path="tea" element={<ToyCompo/>}></Route>
+       <Route path="coffee" element={<BabyToyCompo/>}></Route> */}
         
         </Route> 
    </Routes>
