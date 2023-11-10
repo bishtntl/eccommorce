@@ -2,13 +2,17 @@ import { useEffect, useState } from "react"
 import '../Css/Home.css'
 import { NavLink } from "react-router-dom"
 
+import { Carousel } from "react-responsive-carousel";
+import "react-responsive-carousel/lib/styles/carousel.min.css";
+
+
 
 function GroceriesCompo(){
     const [data,setData]=useState([])
 
     useEffect (()=>{
         async function fetchapi (){
-             const ffdata= await fetch ("http://localhost:4040/api/home")
+             const ffdata= await fetch ("http://localhost:4040/api/getdata")
              const res= await ffdata.json()
 
              setData(res)
@@ -23,10 +27,59 @@ function GroceriesCompo(){
          return(
             <>
              <div key={index} className="underdiv_two_home">
-             {/* <img src={item.images} alt="Not Found" className="premiumTop"/> */}
-             <img src={item.imagess} alt="Not Found" className="topimage_home"/>
-             </div>
 
+             <Carousel
+              infiniteLoop={true}
+              useKeyboardArrows
+              autoPlay
+              interval={3000}
+              stopOnHover={false}
+              stopOnInteraction={false}
+              showStatus={false}
+              showIndicators={false}
+              showThumbs={false}
+            >
+              <div>
+                <img
+                  className="topimage_home_two"
+                  src="https://images-eu.ssl-images-amazon.com/images/G/31/img23/Wireless/CatPage/JUPITER/Phase3/Header/Header_1500x300_01.gif"
+                  alt="Not found"
+                />
+              </div>
+              <div>
+                <img
+                  className="topimage_home_two"
+                  src="https://cdn.tirabeauty.com/v2/billowing-snowflake-434234/tira-p/wrkr/misc/general/free/original/XtnfKRsEC-Reset_Desktop.jpg?dpr=1"
+                  alt="Not Found"
+                  width="100%"
+                />
+              </div>
+              <div>
+                <img
+                  className="topimage_home_two"
+                  src="https://m.media-amazon.com/images/G/31/img2020/fashion/WA_2020/PCGrapgics/12_Steal_Deals_Sarees_to_love._SX3000_QL85_.jpg"
+                  alt="Not Found"
+                  width="100%"
+                />
+              </div>
+              <div>
+                <img
+                  className="topimage_home_two"
+                  src="https://m.media-amazon.com/images/G/31/img23/Beauty/Jupiter23/Headers/1pc._CB573639892_.jpg"
+                  alt="Not Found"
+                  width="100%"
+                />
+              </div>
+        </Carousel>
+
+
+             {/* <img src={item.images} alt="Not Found" className="premiumTop"/> */}
+             {/* <img src={item.imagess} alt="Not Found" className="topimage_home" />
+             <img src="https://www.jiomart.com/images/category/34/tea-20220519.jpeg" className="topimage_home_two"/> */}
+
+             
+             </div>
+            
              <div>
              
              </div>
@@ -39,14 +92,16 @@ function GroceriesCompo(){
 
 
         <div className="image_home_container">
-          {data.map((item,index)=>{
+          {data.filter((item)=>item.id % 5===0).map((item,index)=>{
             return(
                 <>
                 <div key={index} className="underdiv_home">
-                 <NavLink to={`/details/${item.id}`}> <img src={item.image} alt="Not Found"  className="all_images_home"/></NavLink>  
+                 <NavLink to={`/details/${item.id}`}> <img src={item.image} alt="Not Found"   className="all_images_home"/></NavLink>  
                     <span className="price_home">₹:{item.price}.00</span>
-                    <h3 className="title_home">{item.heading.slice(0,25)}</h3>
-                    <button className="btnaddcard_home">buy now</button>
+                    {/* <h3 className="title_home">{item.heading}</h3> */}
+
+                    <NavLink to="/addcard"> <button className="btnaddcard_home">add to cart</button></NavLink>
+                   
 
                 </div>
 

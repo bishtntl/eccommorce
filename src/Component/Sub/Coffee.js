@@ -1,85 +1,64 @@
-function CoffeeCompo(){
+import { useEffect, useState} from "react"
+import "./Css/Coffee.css"
+import { NavLink, useNavigate } from "react-router-dom"
+import FooterCompo from "../Footer"
+
+function PearCompo(){
+    const [data,setData]=useState([])
+    const Navi =useNavigate()
+
+    useEffect (()=>{
+        async function fetchapi (){
+             const ffdata= await fetch ("http://localhost:4040/api/coffee")
+             const res= await ffdata.json()
+
+             setData(res)
+        }
+        fetchapi()
+    })
     return(
         <>
-        <h1>This is CoffeeCompo compo</h1>
-        <div>
-    <div className="groceriesComponent">
-    <NavLink to="pears" className="pears">pears</NavLink>
-    <NavLink to="apple">Apple</NavLink>
+
+<div className="coffee_container">
+           
+                <img src="https://www.jiomart.com/images/category/94/coffee-20220519.jpeg" alt="Not Found" className="topimage_coffee"/>
+             
+        </div>
 
 
-</div>
-{/* <Outlet/> */}
 
-</div>
+
+
+
+
+
+        <div className="image_coffee_container">
+          {data.map((item,index)=>{
+            return(
+                <div>
+                <div key={index} className="underdiv_coffee">
+                <NavLink to={`/details/${item.id}`}><img src={item.image} alt="Not Found"  className="all_images_coffee"/></NavLink>
+                    
+                    <div className="headingproduct"><p >{item.heading.slice(0,50)}</p>
+                    </div> 
+                    <span className="price_coffee">₹:{item.price}.00</span>
+                    <h3 className="title_coffee">{item.name}</h3>
+                    <NavLink to="/addcard">  <button className="btnaddcard_coffee">buy now</button></NavLink>
+
+                </div>
+
+                </div>
+            )
+          })} 
+
+         
+
+        </div>
+
+        <button onClick={()=>Navi("/groceries")} style={{width:"20vw",height:"8vh", borderRadius:"20px",position:"relative",left:"40%",top:"5vh",background:"#99ccff"}}>Go Back</button>
+        <FooterCompo/>
+     
         </>
     )
 }
-export default CoffeeCompo
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-{/* <div> */}
-
-{/* <div onDoubleClick={toggle_groceries}> */}
-  
-{/* </div> */}
-{/* {dataHome && (
-    <ul>
-   <li> <NavLink to="/groceries/apple">pears</NavLink></li> 
-    <li><NavLink to="/groceries/pears">apple</NavLink></li>
-    </ul> */}
-    
-    
-   
-{/* /)} */}
-
-
-{/* </div>
-
-<div> */}
-
-{/* <div onMouseDown={toggle_fashion}> */}
-    
-
-{/* {dataHome && ( */}
-    {/* <ul>
-   <li> <NavLink to="/fashion/men">Men</NavLink></li> 
-    <li><NavLink to="/fashion/women">Women</NavLink></li>
-    </ul> */}
-    
-    
-   
-{/* )} */}
-{/* </div> */}
-
-
-
-
-
-
-
-
-
-
-
-
-
-{/* </div> */}
-
-
-
-
+export default PearCompo

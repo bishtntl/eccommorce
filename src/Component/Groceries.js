@@ -9,7 +9,7 @@ function GroceriesCompo(){
 
     useEffect (()=>{
         async function fetchapi (){
-             const ffdata= await fetch ("http://localhost:4040/api/blog")
+             const ffdata= await fetch ("http://localhost:4040/api/getdata")
              const res= await ffdata.json()
 
              setData(res)
@@ -42,7 +42,7 @@ function GroceriesCompo(){
 
 
         <div className="image_groceries_container">
-          {data.map((item,index)=>{
+          {data.filter((item)=>item.category==="groceries").map((item,index)=>{
             return(
                 <>
                 <div key={index} className="underdiv_groceries">
@@ -52,7 +52,7 @@ function GroceriesCompo(){
                     <span className="price">{item.price}</span>
                     <h3>{item.heading.slice(0,15)}</h3>
                     
-                    <button className="btnaddcard">buy now</button>
+                    <NavLink to="/addcard"><button className="btnaddcard"> add to card</button></NavLink>
 
                 </div>
 

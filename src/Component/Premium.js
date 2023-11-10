@@ -49,7 +49,7 @@ function PremiumCompo(){
                     <span className="price_premium">₹:{item.price}.00</span>
                     <h2>{item.name}</h2>
                     {/* <h3>{item.heading.slice(0,15)}</h3> */}
-                    <button className="btnaddcard_premium">buy now</button>
+                    <NavLink to="/addcard">  <button className="btnaddcard_premium">add to cart</button></NavLink>
 
                 </div>
 

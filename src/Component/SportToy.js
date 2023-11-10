@@ -43,7 +43,7 @@ function SportToyCompo(){
                 <NavLink to={`/details/${item.id}`}>         <img src={item.image} alt="Not Found"  className="all_images_sport"/></NavLink>
                     <span className="price_sport"> ₹:{item.price}.00</span>
                     <h3 className="titel_sport">{item.heading.slice(0,15)}</h3>
-                    <button className="btnaddcard_sport">buy now</button>
+                    <NavLink to="/addcard">  <button className="btnaddcard_sport">add to cast</button></NavLink>
 
                 </div>
 

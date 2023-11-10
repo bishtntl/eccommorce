@@ -30,10 +30,55 @@
     box-shadow: 2px 2px 20px rgba(0, 0, 0, 0.566);
 
 }
-.topimage_home{
-    width: 100%;
+.topimage_home_two{
+    width:100%;
     border-radius: 20px;
+    transition: all;
+    height: 50vh;
+    border: 10px solid black;
+    /* transform: translateX(1200px);  */
+    /* transition: all; 
+    animation: slidetwo 5s linear infinite; */
+ } 
+/* @keyframes slidetwo {
+    0% {
+        transform: translateX(600px);
+    }
+    20% {
+        transform: translateX(20px);
+    }
+     */
+/* } */
+
+
+.topimage_home{
+    width:100%;
+    border-radius: 20px;
+    transition: all 30s;
+    animation: slide 10s linear infinite;
 }
+
+@keyframes slide {
+    0%{
+
+        transform: translateX(0);
+    }
+    10%{
+        transform: translateX(-1500px);
+    }
+    
+}
+
+
+
+
+
+
+
+
+
+
+
 .btnaddcard_home{
     width: 15vw;
     border-radius: 10px;

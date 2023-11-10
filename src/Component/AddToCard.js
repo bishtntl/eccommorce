@@ -1,41 +1,35 @@
-import { useEffect, useState} from "react"
-import '../Css/Fashion.css'
-import { NavLink } from "react-router-dom"
-import FooterCompo from "./Footer"
-function GroceriesCompo(){
-    const [data,setData]=useState([])
+import { useState,useEffect } from "react";
+import { useParams } from "react-router-dom";
 
+
+function AddCard(){
+   const [data,setData]=useState()
+
+    const {id} = useParams();
+    const newid = parseInt(id)
+
+
+    
     useEffect (()=>{
         async function fetchapi (){
-             const ffdata= await fetch ("http://localhost:4040/api/getdata")
+             const ffdata= await fetch ("http://localhost:4040/api/fashiondatas")
              const res= await ffdata.json()
 
              setData(res)
         }
         fetchapi()
-    })
+    },[id])
+
+
+
     return(
         <>
-
-<div className="fashion_container">
-           {data.filter((item)=>item.id===16).map((item,index)=>{
-            return(
-                <div key={index} className="underdiv_two_fashion">
-                <img src={item.images} alt="Not Found" className="topimage_fashion"/>
-                </div>
-            )
-           })}
-        </div>
+        <h1>Add to card</h1>
 
 
-
-
-
-
-
-
+        
         <div className="image_fashion_container">
-          {data.filter((item)=>item.category==="fashion").map((item,index)=>{
+          {data.filter((item)=>item.category==="fashion" && item.id===newid).map((item,index)=>{
             return(
                 <>
                 <div key={index} className="underdiv_fashion">
@@ -54,8 +48,10 @@ function GroceriesCompo(){
           })}
 
         </div>
-        <FooterCompo/>
+
+        
         </>
     )
 }
-export default GroceriesCompo
+
+export default AddCard;
