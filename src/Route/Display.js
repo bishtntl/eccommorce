@@ -40,13 +40,13 @@ function DisplayRoute(){
     setIsFashionData(!isFashiondata);
   };
   const togglePremiumMenu =()=>{
-    setIsBeautyData(!isBeautyData);
+    setIsPremiumData(!isPremiumData);
   };
   const toggleGroceryMenu = () => {
     setIsGroceryData(!isGrocerydata);
   };
   const toggleSportMenu =()=>{
-    setIsElectronicsData(!isElectronicsData);
+    setIsSportData(!isSportData);
   };
 
 
@@ -153,7 +153,7 @@ function DisplayRoute(){
 
 <ul>
   <li>
-    <div>
+  <div onDoubleClick={toggleSportMenu} className="groceriesnav">
     <NavLink to="/sport" className="navlink" >Sport&Toy</NavLink>
     </div>
 
