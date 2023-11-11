@@ -24,28 +24,28 @@ function DisplayRoute(){
 
 
 
-  const [isHomeData,setIsHomeData] = useState(false);
-  const [isAllData,setIsAllData] = useState(false);
+  // const [isHomeData,setIsHomeData] = useState(false);
+  // const [isAllData,setIsAllData] = useState(false);
   const [isFashiondata, setIsFashionData] = useState(false);
-  const [isBeautyData,setIsBeautyData]  = useState(false);
+  const [isPremiumData,setIsPremiumData]  = useState(false);
   const [isGrocerydata, setIsGroceryData] = useState(false);
-  const [isElectronicsData,setIsElectronicsData]  = useState(false);
-  const toggleHomeMenu = () => {
-    setIsHomeData(!isHomeData);
-  };
-  const toggleAllMenu =()=>{
-    setIsAllData(!isAllData);
-  };
+  const [isSportData,setIsSportData]  = useState(false);
+  // const toggleHomeMenu = () => {
+  //   setIsHomeData(!isHomeData);
+  // };
+  // const toggleAllMenu =()=>{
+  //   setIsAllData(!isAllData);
+  // };
   const toggleFashionMenu = () => {
     setIsFashionData(!isFashiondata);
   };
-  const toggleBeautyMenu =()=>{
+  const togglePremiumMenu =()=>{
     setIsBeautyData(!isBeautyData);
   };
   const toggleGroceryMenu = () => {
     setIsGroceryData(!isGrocerydata);
   };
-  const toggleElectronicsMenu =()=>{
+  const toggleSportMenu =()=>{
     setIsElectronicsData(!isElectronicsData);
   };
 
@@ -129,27 +129,47 @@ function DisplayRoute(){
 
 
 <ul>
+  <li>
+  <div onDoubleClick={togglePremiumMenu} className="groceriesnav">
 <NavLink to="/premium"  className="navlink">Premium</NavLink> 
+</div>
+</li>
 
-<li>
-            <NavLink to="/premium/pears">pears</NavLink>
-          </li>
-          <li>
-            <NavLink to="/premium/apple">Apple</NavLink>
-          </li>
+          {isPremiumData && (
+            <ul className="sub_groceries">
+            <li>
+             <NavLink to="/premium/pears">pears</NavLink>
+           </li>
+           <li>
+             <NavLink to="/premium/apple">Apple</NavLink>
+           </li>
+ 
+           </ul>
+          )}
+     
 </ul>
 
 
 
 <ul>
-<NavLink to="/sport" className="navlink" >Sport&Toy</NavLink>
+  <li>
+    <div>
+    <NavLink to="/sport" className="navlink" >Sport&Toy</NavLink>
+    </div>
 
-<li>
-            <NavLink to="/sport/toy">Action & Toy Figure</NavLink>
-          </li>
-          <li>
-            <NavLink to="/sport/babytoy">Baby & Toddler Toys</NavLink>
-          </li>
+  </li>
+{isSportData && (
+  <ul className="sub_groceries">
+  <li>
+              <NavLink to="/sport/toy">Action & Toy Figure</NavLink>
+            </li>
+            <li>
+              <NavLink to="/sport/babytoy">Baby & Toddler Toys</NavLink>
+            </li>
+            </ul>
+)}
+
+
 </ul>
 
 </div>
