@@ -70,27 +70,3 @@ const newid=parseInt(id)
     )
 }
 export default DetailsCompo
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  {/* <div key={index} className="underdiv_groceries"> */}
-               {/* <img src={item.image} alt="Not Found"  className="all_images_groceries"/> */}
-                    
-                    {/* <div className="headingproduct"><p >{item.heading.slice(0,50)}</p>
-                    </div> */}
-                    {/* <span className="price">₹:{item.price}.00</span>
-                    <h3 >{item.name}</h3>
-                    <button className="btnaddcard">buy now</button> */}
-
-                {/* </div> */}
