@@ -139,14 +139,18 @@ const newid=parseInt(id)
         <div className="details_wrrraper">
        {data.filter((item)=>item.id===newid).map((item,index)=>{
         return(
-            <div key={index} className="kkk">
+            <div key={index} className="details_first_div">
        <img src={item.image} alt="Not Found"  className="all_images_details"/>
-                <span className="price_details">₹:{item.price}.00</span>
-                <p className="heading_details">{item.heading}</p>
-                    <h3 className="title_details">{item.name}</h3>
+<div className="underdiv_details">
+<h3 className="title_details">{item.name}</h3>
+<p className="heading_details">{item.heading}</p>
+     <span className="price_details">₹:{item.price}.00</span>
+               
+                   
                    
                     <p className="moredetails"> <h1>Discreption</h1>{item.para}</p>
-                    <NavLink to="/addcard"><button className="btnaddcard_details">add to card</button></NavLink>
+                    <NavLink to="/addcard"><button className="btnaddcard_details">add to card</button></NavLink></div>
+               
             </div>
         )
        })}

@@ -16,6 +16,8 @@ import BabyToyCompo from "../Component/Sub/BabyToy"
 import AddCard from "../Component/AddToCard"
 import DetailsCompo from "../Component/Details"
 import { useState } from "react"
+import LoginButton from "../LoginSignUp/Login"
+import RegisterButton from "../LoginSignUp/Register"
 
 
 function DisplayRoute(){
@@ -71,7 +73,7 @@ function DisplayRoute(){
 
 
 
-<NavLink to="/"  className="navlink" >Home</NavLink>
+<NavLink to="/home"  className="navlink" >Home</NavLink>
 
 
 
@@ -170,8 +172,37 @@ function DisplayRoute(){
 
 
 
+
+{/* *********************************************loginand register******************************* */}
+
+
+
+
+{/* <NavLink to="/home"  ><button className="btnone">Home</button></NavLink> */}
+      
+      <NavLink to="/register" ><button className="btnone">Regiter</button></NavLink>
+      <NavLink to="/"><button className="btnone">Login</button></NavLink>
+
+
+
+
+
+
+
+
+
+{/* **************************************************************** */}
+
+
+
+
+
+
+
+
+
    <Routes>
-       <Route path="/" element={<HomeCompo/>}></Route>
+       <Route path="/home" element={<HomeCompo/>}></Route>
 
 
        
@@ -210,12 +241,23 @@ function DisplayRoute(){
 
        <Route path="/details/:id" element={<DetailsCompo/>}></Route>
       
+
+
+
+
+
+       <Route path="/" element={<LoginButton/>}></Route>
+        <Route path="/register" element={<RegisterButton/>}></Route>
    </Routes>
    
 
  
 
 
+
+
+   
+     
 
    
 
