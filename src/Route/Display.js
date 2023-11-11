@@ -101,39 +101,24 @@ function DisplayRoute(){
 </ul>
 
        
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 <ul>
+  <li>
+<div onDoubleClick={toggleFashionMenu} className="groceriesnav">
 <NavLink to="/fashion"  className="navlink">Fashion</NavLink>
+</div>
+</li>
 
 
-<li>
-            <NavLink to="/fashion/men">men</NavLink>
-          </li>
-          <li>
-            <NavLink to="/fashion/women">women</NavLink>
-          </li>
+{isFashiondata && (
+  <ul className="sub_groceries">
+  <li>
+   <NavLink to="/fashion/men" >men</NavLink>
+ </li>
+ <li>
+   <NavLink to="/fashion/women">women</NavLink>
+ </li>
+ </ul>
+)}
 
 
 </ul>
