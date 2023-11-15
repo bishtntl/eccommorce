@@ -1,4 +1,4 @@
-import { BrowserRouter, NavLink, Route, Routes, useNavigate } from "react-router-dom"
+import { BrowserRouter, NavLink, Route, Routes } from "react-router-dom"
 import HomeCompo from "../Component/Home"
 import GroceriesCompo from "../Component/Groceries"
 import FashionCompo from "../Component/Fashion"
