@@ -53,13 +53,13 @@ function RegisterButton(){
          
 
 
-          useEffect(()=>{
-            const auth=localStorage.getItem("token")
+          // useEffect(()=>{
+          //   const auth=localStorage.getItem("token")
 
-            if(token){
-              Navi('/')
-            }
-          })
+          //   if(token){
+          //     Navi('/')
+          //   }
+          // })
         
 
   }

@@ -49,12 +49,12 @@ function DisplayRoute() {
   };
 
 
-const logoutfunc =()=>{
-     localStorage.clear()
-     Navi("/register")
+// const logoutfunc =()=>{
+//      localStorage.clear()
+//      Navi("/register")
 
 
-}
+// }
 
  
 
