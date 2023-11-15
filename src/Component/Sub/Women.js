@@ -1,6 +1,6 @@
 import { useEffect, useState} from "react"
 import "./Css/Women.css"
-import { NavLink, json, useNavigate } from "react-router-dom"
+import { NavLink,  useNavigate } from "react-router-dom"
 import FooterCompo from "../Footer"
 
 function PearCompo(){

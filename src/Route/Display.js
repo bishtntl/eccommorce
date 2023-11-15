@@ -18,7 +18,7 @@ import DetailsCompo from "../Component/Details"
 import {  useState } from "react"
 import LoginButton from "../LoginSignUp/Login"
 import RegisterButton from "../LoginSignUp/Register"
-import PrivateCompo from "../Component/Private"
+// import PrivateCompo from "../Component/Private"
 import LogOut from "../LoginSignUp/Logout"
 
 
