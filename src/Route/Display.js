@@ -68,10 +68,12 @@ function DisplayRoute() {
         <span className="shop_heading">Shop Now</span>
         <input type="text" className="searchdata" placeholder="search item here" />
 
-       
+        <NavLink to="/register" >  <button className="btnone">Regiter</button></NavLink>
+
+      
         {/* <button className="signup">Sign Up</button> */}
-      {auth ? <NavLink  to="/register"><button  className="btnone">Logout</button></NavLink> : <NavLink to="/register" ><button className="btnone">Regiter</button></NavLink>
-}  
+      {/* {auth ? <NavLink  to="/register"><button  className="btnone">Logout</button></NavLink> : <NavLink to="/register" ><button className="btnone">Regiter</button></NavLink>
+}   */}
       
         
 {/* <NavLink to="/"><button className="btnone">Login</button></NavLink> */}
