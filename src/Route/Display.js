@@ -26,7 +26,7 @@ function DisplayRoute() {
 
   const [count, setCount] = useState(false)
 
-  const auth=localStorage.getItem("token")
+  // const auth=localStorage.getItem("token")
   // const Navi=useNavigate()
 
   const [isFashiondata, setIsFashionData] = useState(false);
@@ -70,7 +70,7 @@ function DisplayRoute() {
 
        
         {/* <button className="signup">Sign Up</button> */}
-      {auth ? <NavLink  to="/register"><button onClick={logoutfunc} className="btnone">Logout</button></NavLink> : <NavLink to="/register" ><button className="btnone">Regiter</button></NavLink>
+      {auth ? <NavLink  to="/register"><button  className="btnone">Logout</button></NavLink> : <NavLink to="/register" ><button className="btnone">Regiter</button></NavLink>
 }  
       
         

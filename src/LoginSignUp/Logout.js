@@ -1,7 +1,7 @@
-import { useNavigate } from "react-router-dom"
+// import { useNavigate } from "react-router-dom"
 
 function LogOut(){
-    Navi=useNavigate()
+    // Navi=useNavigate()
     return(
         <>
 <h1>log out</h1>
