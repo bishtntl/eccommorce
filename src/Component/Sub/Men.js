@@ -9,7 +9,7 @@ function PearCompo(){
 
     useEffect (()=>{
         async function fetchapi (){
-             const ffdata= await fetch ("http://localhost:4040/api/getdata")
+             const ffdata= await fetch ("http://localhost:5050/api/getdata")
              const res= await ffdata.json()
 
              setData(res)

@@ -8,7 +8,7 @@ function SportToyCompo(){
 
     useEffect (()=>{
         async function fetchapi (){
-             const ffdata= await fetch ("http://localhost:4040/api/sportone")
+             const ffdata= await fetch ("http://localhost:5050/api/getdata")
              const res= await ffdata.json()
 
              setData(res)
@@ -35,15 +35,19 @@ function SportToyCompo(){
 
 
 
-        <div className="image_sport_container">
-          {data.map((item,index)=>{
+        <div className="image_sport_container"> 
+          {data.filter((item)=>item.category==="sport").map((item,index)=>{
             return(
                 <>
                 <div key={index} className="underdiv_sport">
                 <NavLink to={`/details/${item.id}`}>         <img src={item.image} alt="Not Found"  className="all_images_sport"/></NavLink>
-                    <span className="price_sport"> ₹:{item.price}.00</span>
-                    <h3 className="titel_sport">{item.heading.slice(0,15)}</h3>
-                    <NavLink to="/addcard">  <button className="btnaddcard_sport">add to cast</button></NavLink>
+
+                <div className="underdiv_sport_two">
+                <span className="price_sport"> ₹:{item.price}.00</span>
+                    {/* <h3 className="titel_sport">{item.heading}</h3> */}
+                    <NavLink to="/addcard">  <button className="btnaddcard_sport">add to cart</button></NavLink>
+                </div>
+                   
 
                 </div>
 

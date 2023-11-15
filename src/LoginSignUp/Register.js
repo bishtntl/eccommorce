@@ -1,8 +1,10 @@
 import { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import "./register.css"
 
 function RegisterButton(){
+
  
     const Navi=useNavigate()
     const [data,setData]=useState({
@@ -27,28 +29,17 @@ function RegisterButton(){
   
 
         
-            axios.post("http://localhost:4040/api/register",data)
+            axios.post("http://localhost:5050/api/register",data)
             .then((res)=>{
              alert(res.data.msg)
-          //    setStore(res.data)
+             setData(res.data)
           if (res.data.token) {
             localStorage.setItem('token', res.data.token);
           }
     
-          Navi("/");
+          Navi("/login");
         })
-        .catch((err) => console.log(err));
-    
-             
-            //  Navi("/login")
-            //  if(data.name.length>=5
-            //      && data.phone.length===10 && data.email.length>=5 && data.password.length>=3){
-                 
-            //  }
-            
-            // })
-            // .catch(err=>console.log(err))
-
+        .catch((err) => console.log(err,"axios error"));
 
             setData({
                 name:"",
@@ -61,25 +52,46 @@ function RegisterButton(){
 
          
 
+
+          useEffect(()=>{
+            const auth=localStorage.getItem("token")
+
+            if(token){
+              Navi('/')
+            }
+          })
+        
+
   }
 
 return(
     <div className="register">
-       <h1  className="heading" >Register Page</h1>
-    <form onSubmit={handleSubmit}>
+    
+        <div className="under_register"> 
+        <h1  className="heading" >Register Account</h1>
+        <h2 style={{color:"gray"}}>Hello Friends</h2>
+        <h3 style={{color:"gray"}}>Enter your personal details and start journey with us</h3>
+        </div>
+        <div className="under_div">
+          <h1 className="create_acc" style={{color:'gray'}}>Create Account</h1>
+    <form  onSubmit={handleSubmit}>
+    {/* action="/" method="POST" */}
         
         <label htmlFor="name" className="name">Name</label>
-        <input type="text" id="name" name="name" palceholder="enter your name" value={data.name} autoComplete="off" onChange={changeHandle} className="nameinput"/><br/>
+        <input type="text" id="name" name="name" placeholder="Enter your name" value={data.name} autoComplete="off" onChange={changeHandle} className="nameinput"/><br/>
        
-        <label htmlFor="email" className="email">Email</label>
-        <input type="email" name="email" palceholder="enter your mail" id="email" value={data.email}  autoComplete="off"   onChange={changeHandle} className="emailinput"/><br/>
-        <label htmlFor="password" className="password">Password</label>
-        <input type="password" name="password" palceholder="enter your password" value={data.password}  id="password"  autoComplete="off" onChange={changeHandle} className="passwordinput"/><br/>
-        <label htmlFor="num" className="phone">Number</label>
-        <input type='number' name="phone" palceholder="enter your number" id="num" value={data.phone}  autoComplete="off"  onChange={changeHandle} className="phoneinput"/><br/>
-        <button type="submit"  
+        <label htmlFor="emailregister" className="emailregister">Email</label>
+        <input type="email" name="email" placeholder="Enter your mail" id="emailregister" value={data.email}  autoComplete="off"   onChange={changeHandle} className="emailinput"/><br/>
+        <label htmlFor="passwordregiter" className="passwordregiter">Password</label>
+        <input type="password" name="password" placeholder="Enter your password" value={data.password}  id="passwordregiter"  autoComplete="off" onChange={changeHandle} className="passwordinput"/><br/>
+        <label htmlFor="numregister" className="numregister">Number</label>
+        <input type='number' name="phone" placeholder="Enter your number" id="numregister" value={data.phone}  autoComplete="off"  onChange={changeHandle} className="phoneinput"/><br/>    
+    <button type="submit"  
         className="submitbtn">Register</button>
+        <button className="loginbtn" onClick={()=>Navi("/login")}>login</button>
     </form>
+      </div>
+       
     
 
     </div>

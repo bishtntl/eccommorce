@@ -8,7 +8,7 @@ function PremiumCompo(){
 
     useEffect (()=>{
         async function fetchapi (){
-             const ffdata= await fetch ("http://localhost:4040/api/premium")
+             const ffdata= await fetch ("http://localhost:5050/api/getdata")
              const res= await ffdata.json()
 
              setData(res)
@@ -41,15 +41,19 @@ function PremiumCompo(){
 
 
         <div className="image_premium_container">
-          {data.map((item,index)=>{
+          {data.filter((item)=>item.category==="premium").map((item,index)=>{
             return(
                 <>
                 <div key={index} className="underdiv_premium">
                 <NavLink to={`/details/${item.id}`}>    <img src={item.image} alt="Not Found"  className="all_images_premium"/></NavLink>
-                    <span className="price_premium">₹:{item.price}.00</span>
-                    <h2>{item.name}</h2>
+
+                <div className="underdiv_premium_two">
+                <span className="price_premium">₹:{item.price}.00</span>
+                    <h2 className="title_premium">{item.name}</h2>
                     {/* <h3>{item.heading.slice(0,15)}</h3> */}
                     <NavLink to="/addcard">  <button className="btnaddcard_premium">add to cart</button></NavLink>
+                </div>
+                 
 
                 </div>
 
@@ -90,7 +94,11 @@ function PremiumCompo(){
 
     <div className="gotonavdtl">
 <p style={{color:'white', fontSize:'1.1em'}}>Click On This Link</p>
-
+<NavLink to="/home"  className="navlink" >Home</NavLink>
+<NavLink to="/groceries"  className="navlink" >Groceries</NavLink>
+<NavLink to="/fashion"  className="navlink"  >Fashion</NavLink>
+<NavLink to="/premium" className="navlink" >Premium</NavLink>  
+<NavLink to="/sport" className="navlink"  >Sport&Toy</NavLink>
 </div>
 </div>
         </>

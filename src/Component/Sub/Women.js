@@ -1,6 +1,6 @@
 import { useEffect, useState} from "react"
 import "./Css/Women.css"
-import { NavLink, useNavigate } from "react-router-dom"
+import { NavLink, json, useNavigate } from "react-router-dom"
 import FooterCompo from "../Footer"
 
 function PearCompo(){
@@ -9,10 +9,10 @@ function PearCompo(){
 
     useEffect (()=>{
         async function fetchapi (){
-             const ffdata= await fetch ("http://localhost:4040/api/womendress")
+             const ffdata= await fetch ("http://localhost:5050/api/getdata")
              const res= await ffdata.json()
 
-             setData(res)
+            setData(res)
         }
         fetchapi()
     })
@@ -34,7 +34,7 @@ function PearCompo(){
 
 
         <div className="image_women_container">
-          {data.map((item,index)=>{
+          {data.filter((item)=>(item.id>=66) && (item.id<=68)).map((item,index)=>{
             return(
                 <div>
                 <div key={index} className="underdiv_women">

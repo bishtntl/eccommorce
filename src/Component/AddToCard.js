@@ -12,7 +12,7 @@ function AddCard(){
     
     useEffect (()=>{
         async function fetchapi (){
-             const ffdata= await fetch ("http://localhost:4040/api/fashiondatas")
+             const ffdata= await fetch ("http://localhost:5050/api/fashiondatas")
              const res= await ffdata.json()
 
              setData(res)

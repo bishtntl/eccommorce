@@ -7,12 +7,12 @@ import "react-responsive-carousel/lib/styles/carousel.min.css";
 
 
 
-function GroceriesCompo(){
+function HomeCompo(){
     const [data,setData]=useState([])
 
     useEffect (()=>{
         async function fetchapi (){
-             const ffdata= await fetch ("http://localhost:4040/api/getdata")
+             const ffdata= await fetch ("http://localhost:5050/api/getdata")
              const res= await ffdata.json()
 
              setData(res)
@@ -73,10 +73,6 @@ function GroceriesCompo(){
         </Carousel>
 
 
-             {/* <img src={item.images} alt="Not Found" className="premiumTop"/> */}
-             {/* <img src={item.imagess} alt="Not Found" className="topimage_home" />
-             <img src="https://www.jiomart.com/images/category/34/tea-20220519.jpeg" className="topimage_home_two"/> */}
-
              
              </div>
             
@@ -92,15 +88,18 @@ function GroceriesCompo(){
 
 
         <div className="image_home_container">
-          {data.filter((item)=>item.id % 5===0).map((item,index)=>{
+          {data.filter((item)=>item.id % 4===0).map((item,index)=>{
             return(
                 <>
                 <div key={index} className="underdiv_home">
                  <NavLink to={`/details/${item.id}`}> <img src={item.image} alt="Not Found"   className="all_images_home"/></NavLink>  
-                    <span className="price_home">₹:{item.price}.00</span>
+                 <div className="underdiv_home_two">
+                 <span className="price_home">₹:{item.price}.00</span>
                     {/* <h3 className="title_home">{item.heading}</h3> */}
 
                     <NavLink to="/addcard"> <button className="btnaddcard_home">add to cart</button></NavLink>
+                 </div>
+                    
                    
 
                 </div>
@@ -145,10 +144,14 @@ function GroceriesCompo(){
 
     <div className="gotonavdtl">
 <p style={{color:'white', fontSize:'1.1em'}}>Click On This Link</p>
-
+<NavLink to="/home"  className="navlink" >Home</NavLink>
+<NavLink to="/groceries"  className="navlink" >Groceries</NavLink>
+<NavLink to="/fashion"  className="navlink"  >Fashion</NavLink>
+<NavLink to="/premium" className="navlink" >Premium</NavLink>  
+<NavLink to="/sport" className="navlink"  >Sport&Toy</NavLink>         
 </div>
 </div>
         </>
     )
 }
-export default GroceriesCompo
+export default HomeCompo

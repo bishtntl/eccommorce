@@ -9,7 +9,7 @@ function PearCompo(){
 
     useEffect (()=>{
         async function fetchapi (){
-             const ffdata= await fetch ("http://localhost:4040/api/tea")
+             const ffdata= await fetch ("http://localhost:5050/api/getdata")
              const res= await ffdata.json()
 
              setData(res)
@@ -33,13 +33,13 @@ function PearCompo(){
 
 
         <div className="image_tea_container">
-          {data.map((item,index)=>{
+          {data.filter((item)=>(item.id>=75) && (item.id<=77)).map((item,index)=>{
             return(
                 <div>
                 <div key={index} className="underdiv_tea">
                 <NavLink to={`/details/${item.id}`}><img src={item.image} alt="Not Found"  className="all_images_tea"/></NavLink>
                     
-                    <div className="headingproduct_tea"><p >{item.heading.slice(0,50)}</p>
+                    <div className="headingproduct_tea"><p >{item.heading}</p>
                     </div> 
                     <span className="price_tea">₹:{item.price}.00</span>
                     <h3 className="title_tea">{item.name}</h3>
