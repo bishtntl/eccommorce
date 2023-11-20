@@ -1,10 +1,11 @@
 import axios from "axios";
-import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import {  useState } from "react";
+import {NavLink, useNavigate } from "react-router-dom";
 import "./login.css"
-
+const token =localStorage.getItem("token")
 function LoginButton(){
     const navigate=useNavigate()
+  
     const [user,setUser]=useState(
         {
             email:"",
@@ -22,13 +23,20 @@ function LoginButton(){
     const handle=(e)=>{
 
 e.preventDefault()
-        axios.post("http://localhost:4040/api/login",user)
+        axios.post("http://localhost:5050/api/login",user,{headers:{"authorization":`Bearer${token}`}})
         .then((res)=>{
             console.log(res)
           alert(res.data.msg) 
-          
           localStorage.getItem("token",res.data.token)
-          navigate('/home')
+          localStorage.getItem("name",res.data.name)
+
+        //   if(token){
+            navigate('/') 
+        //   } else{
+           
+        //     navigate('/login') 
+        //   }
+              
         })
 
         setUser({
@@ -37,6 +45,13 @@ e.preventDefault()
 
         })
     }
+
+    // useEffect(()=>{
+    //     
+    //     if(token){
+    //         navigate("/login")
+    //     }
+    // })
     
     return(
         <div className="login">
@@ -55,7 +70,9 @@ e.preventDefault()
       <input type="password" id="passwordlogin" name="password" placeholder="enter your password" value={user.password} onChange={changeme} className="passwordinput"/><br/><br/>
      
      
-      <button onClick={handle} className="loginbtn">Login</button>
+      <button onClick={handle} className="loginbtn">Login</button><br/>
+      
+      <NavLink to="/register" >go to register page</NavLink>
 
         </form>
             </div>

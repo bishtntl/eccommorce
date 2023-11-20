@@ -1,19 +1,25 @@
 import { useEffect, useState } from "react"
 import '../Css/Sport.css'
-import { NavLink } from "react-router-dom"
+import { NavLink, useNavigate } from "react-router-dom"
 import FooterCompo from "./Footer"
+import { useDispatch } from "react-redux"
+import { addtoCart } from "../Redux/Slice"
 
 function SportToyCompo(){
     const [data,setData]=useState([])
+    const dispatch=useDispatch()
+    // const token=localStorage.getItem("token")
+    // const Navi=useNavigate()
 
     useEffect (()=>{
-        async function fetchapi (){
-             const ffdata= await fetch ("http://localhost:5050/api/getdata")
-             const res= await ffdata.json()
-
-             setData(res)
-        }
-        fetchapi()
+        
+            async function fetchapi (){
+                const ffdata= await fetch ("http://localhost:5050/api/getdata")
+                const res= await ffdata.json()
+                setData(res)
+           }
+           fetchapi()
+         
     })
     return(
 
@@ -37,6 +43,13 @@ function SportToyCompo(){
 
         <div className="image_sport_container"> 
           {data.filter((item)=>item.category==="sport").map((item,index)=>{
+             const {
+                id = item.id,
+                name=item.name,
+                image = item.image,
+                price= parseInt(item.price),
+             
+              }= item;
             return(
                 <>
                 <div key={index} className="underdiv_sport">
@@ -45,7 +58,7 @@ function SportToyCompo(){
                 <div className="underdiv_sport_two">
                 <span className="price_sport"> ₹:{item.price}.00</span>
                     {/* <h3 className="titel_sport">{item.heading}</h3> */}
-                    <NavLink to="/addcard">  <button className="btnaddcard_sport">add to cart</button></NavLink>
+                    <NavLink to={`/addcard/${item.id}`}>  <button className="btnaddcard_sport" onClick={()=>dispatch(addtoCart({id,price,image,name}))} >add to cart</button></NavLink>
                 </div>
                    
 

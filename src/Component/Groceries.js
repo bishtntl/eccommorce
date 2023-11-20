@@ -1,27 +1,34 @@
 import { useEffect, useState } from "react"
-
 import '../Css/Groceries.css'
-import { NavLink } from "react-router-dom"
-
+import { NavLink, useNavigate } from "react-router-dom"
+import { useDispatch } from "react-redux"
+import { addtoCart } from "../Redux/Slice"
 
 function GroceriesCompo(){
     const [data,setData]=useState([])
+    const dispatch=useDispatch()
+    // const token=localStorage.getItem("token")
+    // const Navi=useNavigate()
 
     useEffect (()=>{
-        async function fetchapi (){
-             const ffdata= await fetch ("http://localhost:5050/api/getdata")
-             const res= await ffdata.json()
-             console.log(res)
-             setData(res)
-        }
-        fetchapi()
+      
+            async function fetchapi (){
+                const ffdata= await fetch ("http://localhost:5050/api/getdata")
+                const res= await ffdata.json()
+                console.log(res)
+                setData(res)
+           }
+           fetchapi()
+       
+       
     })
     return(
 <>
-{/* <Outlet/> */}
+
 
         <div className="groceries_container">
         {data.filter((item)=>item.id===1).map((item,index)=>{
+           
          return(
              <div key={index} className="underdiv_two">
              <img src={item.images} alt="Not Found" className="groceriestop"/>
@@ -31,18 +38,15 @@ function GroceriesCompo(){
      </div>
 
 
-
-
-
-
-
-
-
-
-
-
         <div className="image_groceries_container">
           {data.filter((item)=>item.category==="groceries").map((item,index)=>{
+             const {
+                id = item.id,
+                name=item.name,
+                image = item.image,
+                price= parseInt(item.price),
+             
+              }= item;
             return(
                 <>
                 <div key={index} className="underdiv_groceries">
@@ -56,7 +60,9 @@ function GroceriesCompo(){
                     <span className="price_groceries">₹:{item.price}.00</span>
                     <h3>{item.heading.slice(0,15)}</h3>
                     
-                    <NavLink to="/addcard"><button className="btnaddcard"> add to card</button></NavLink>
+                    <NavLink to={`/addcard/${item.id}`}>
+                        <button onClick={()=>dispatch(addtoCart({id,price,image,name}))} className="btnaddcard"> add to card</button>
+                    </NavLink>
                     </div>
 
                 </div>
@@ -72,7 +78,7 @@ function GroceriesCompo(){
         <div className="footermain_groceries">
 
 <div className="logosdtl">
-    <img className="logo" src="https://1000logos.net/wp-content/uploads/2016/11/Facebook-logo.png" alt="Not Found" />
+    <img className="logo" src="https://sguru.org/wp-content/uploads/2018/02/facebook-logo-png-20.png" alt="Not Found" />
     <img className="logo" src="http://1000logos.net/wp-content/uploads/2017/02/New-Instagram-logo.jpg" alt="Not Found" />
     <img className="logo" src="https://www.aps.edu/sapr/images/pnglot.comtwitterbirdlogopng139932.png/image" alt="Not Found" />
     <img className="logo" src="https://sguru.org/wp-content/uploads/2018/02/Logo-LinkedIn-Round.png" alt="Not Found" />

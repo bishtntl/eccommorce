@@ -10,15 +10,15 @@ function AddCard(){
 
 
     
-    useEffect (()=>{
-        async function fetchapi (){
-             const ffdata= await fetch ("http://localhost:5050/api/fashiondatas")
-             const res= await ffdata.json()
+    // useEffect (()=>{
+    //     async function fetchapi (){
+    //          const ffdata= await fetch ("http://localhost:5050/api/fashiondatas")
+    //          const res= await ffdata.json()
 
-             setData(res)
-        }
-        fetchapi()
-    },[id])
+    //          setData(res)
+    //     }
+    //     fetchapi()
+    // },[id])
 
 
 
@@ -28,7 +28,7 @@ function AddCard(){
 
 
         
-        <div className="image_fashion_container">
+        {/* <div className="image_fashion_container">
           {data.filter((item)=>item.category==="fashion" && item.id===newid).map((item,index)=>{
             return(
                 <>
@@ -37,17 +37,17 @@ function AddCard(){
                     
                     {/* <div className="headingproduct"><p >{item.heading.slice(0,50)}</p>
                     </div> */}
-                    <span className="price_fashion">₹:{item.price}.00</span>
-                    <h3 className="title_fashion">{item.name}</h3>
-                    <NavLink to="/addcard"><button className="btnaddcard_fashion">add to card</button></NavLink>
+                    {/* <span className="price_fashion">₹:{item.price}.00</span> */} 
+                    {/* <h3 className="title_fashion">{item.name}</h3> */}
+                    {/* <NavLink to="/addcard"><button className="btnaddcard_fashion">add to card</button></NavLink> */}
 
-                </div>
+                {/* </div> */}
 
-                </>
-            )
-          })}
+                {/* </> */}
+            {/* )
+          })} */}
 
-        </div>
+        {/* </div> */}
 
         
         </>

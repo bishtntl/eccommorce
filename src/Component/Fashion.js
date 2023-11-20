@@ -1,18 +1,27 @@
 import { useEffect, useState} from "react"
 import '../Css/Fashion.css'
-import { NavLink } from "react-router-dom"
+import { NavLink, useNavigate } from "react-router-dom"
 import FooterCompo from "./Footer"
+import { useDispatch } from "react-redux"
+import { addtoCart } from "../Redux/Slice"
 function GroceriesCompo(){
     const [data,setData]=useState([])
+    const dispatch=useDispatch()
+    // const Navi=useNavigate()
+    // const token=localStorage.getItem("token")
 
     useEffect (()=>{
-        async function fetchapi (){
-             const ffdata= await fetch("http://localhost:5050/api/getdata")
-             const res= await ffdata.json()
 
-             setData(res)
-        }
-        fetchapi()
+ 
+        async function fetchapi (){
+          const ffdata= await fetch("http://localhost:5050/api/getdata")
+          const res= await ffdata.json()
+
+          setData(res)
+     }
+     fetchapi()
+      
+        
     })
     return(
         <>
@@ -36,6 +45,13 @@ function GroceriesCompo(){
 
         <div className="image_fashion_container">
           {data.filter((item)=>item.category==="fashion").map((item,index)=>{
+             const {
+              id = item.id,
+              name=item.name,
+              image = item.image,
+              price= parseInt(item.price),
+           
+            }= item;
             return(
                 <>
                 <div key={index} className="underdiv_fashion">
@@ -45,7 +61,7 @@ function GroceriesCompo(){
                    <span className="price_fashion">₹:{item.price}.00</span>
                  
                  <h3 className="title_fashion">{item.name}</h3>
-                 <NavLink to="/addcard"><button className="btnaddcard_fashion">add to card</button></NavLink>
+                 <NavLink to={`/addcard/${item.id}`}><button onClick={()=>dispatch(addtoCart({id,price,image,name}))} className="btnaddcard_fashion">add to card</button></NavLink>
                    </div>
                     
 

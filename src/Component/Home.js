@@ -1,25 +1,41 @@
 import { useEffect, useState } from "react"
 import '../Css/Home.css'
-import { NavLink } from "react-router-dom"
-
+import { NavLink, useNavigate } from "react-router-dom"
+import { useDispatch } from "react-redux"
+import { addtoCart } from "../Redux/Slice"
 import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
-
+// import axios from "axios"
 
 
 function HomeCompo(){
     const [data,setData]=useState([])
+    // const Navi=useNavigate()
+    const dispatch=useDispatch()
+    // const token=localStorage.getItem("token")
+// console.log(token)
+
+   
+    // const name =localStorage.getItem("name")
+    // console.log(name)
 
     useEffect (()=>{
-        async function fetchapi (){
-             const ffdata= await fetch ("http://localhost:5050/api/getdata")
-             const res= await ffdata.json()
 
-             setData(res)
-            //  console.log(res)
-        }
-        fetchapi()
+
+   
+        async function fetchapi (){
+          const ffdata= await fetch ("http://localhost:5050/api/getdata")
+           const res= await ffdata.json()
+
+           setData(res)
+          
+         console.log(res)
+      }
+      fetchapi()
+     
+       
     })
+
     return(
         <>
          <div className="home_container">
@@ -89,15 +105,20 @@ function HomeCompo(){
 
         <div className="image_home_container">
           {data.filter((item)=>item.id % 4===0).map((item,index)=>{
+            const {
+              id = item.id,
+              name=item.name,
+              image = item.image,
+              price= parseInt(item.price),
+           
+            }= item;
             return(
                 <>
                 <div key={index} className="underdiv_home">
                  <NavLink to={`/details/${item.id}`}> <img src={item.image} alt="Not Found"   className="all_images_home"/></NavLink>  
                  <div className="underdiv_home_two">
                  <span className="price_home">₹:{item.price}.00</span>
-                    {/* <h3 className="title_home">{item.heading}</h3> */}
-
-                    <NavLink to="/addcard"> <button className="btnaddcard_home">add to cart</button></NavLink>
+                    <NavLink to={`/addcard/${item.id}`}> <button className="btnaddcard_home" onClick={()=>dispatch(addtoCart({id,price,image,name}))}>add to cart</button></NavLink>
                  </div>
                     
                    

@@ -1,4 +1,4 @@
-import { BrowserRouter, NavLink, Route, Routes } from "react-router-dom"
+import {NavLink, Route, Routes, useNavigate } from "react-router-dom"
 import HomeCompo from "../Component/Home"
 import GroceriesCompo from "../Component/Groceries"
 import FashionCompo from "../Component/Fashion"
@@ -13,21 +13,31 @@ import PearCompo from "../Component/Sub/pears"
 import AppleCompo from "../Component/Sub/Apple"
 import ToyCompo from "../Component/Sub/Toy"
 import BabyToyCompo from "../Component/Sub/BabyToy"
-import AddCard from "../Component/AddToCard"
+// import AddCard from "../Component/AddToCard"
 import DetailsCompo from "../Component/Details"
 import {  useState } from "react"
 import LoginButton from "../LoginSignUp/Login"
 import RegisterButton from "../LoginSignUp/Register"
-// import PrivateCompo from "../Component/Private"
+import PrivateCompo from "../Component/Private"
 import LogOut from "../LoginSignUp/Logout"
-
+// 
+// import Cart from "../Redux/AddtoCart"
+// import AddtoCart from "../Redux/AddtoCart"
+import { useSelector } from "react-redux"
+import Cart from "../Redux/AddtoCart"
 
 function DisplayRoute() {
-
+  // const auth=localStorage.getItem("name")
   const [count, setCount] = useState(false)
 
   // const auth=localStorage.getItem("token")
-  // const Navi=useNavigate()
+  const Navi=useNavigate()
+
+
+
+const  auth=localStorage.getItem("token")
+  const countItem = useSelector((state) => state.Cart.cart);
+<span>{countItem.length}</span>
 
   const [isFashiondata, setIsFashionData] = useState(false);
   const [isPremiumData, setIsPremiumData] = useState(false);
@@ -49,34 +59,59 @@ function DisplayRoute() {
   };
 
 
-// const logoutfunc =()=>{
-//      localStorage.clear()
-//      Navi("/register")
+const logoutfunc =()=>{
+     localStorage.clear()
+     Navi("/register")
 
 
-// }
+}
 
  
 
 
+
   return (
     <>
-       <BrowserRouter>
+       {/* <BrowserRouter> */}
 
       <div className="header_main">
         <img src="https://png.pngtree.com/png-vector/20190917/ourmid/pngtree-store-icon-in-line-style-png-image_1736161.jpg" height="60" alt="Not Found" className="imageicon" />
         <span className="shop_heading">Shop Now</span>
         <input type="text" className="searchdata" placeholder="search item here" />
 
-        <NavLink to="/register" >  <button className="btnone">Regiter</button></NavLink>
+        <span><i class="fa-regular fa-cart-shopping"></i>
+                <span>{countItem.length}</span>
+                </span>
+
+        {/* <NavLink to="/register" >  <button className="btnone">Regiter</button></NavLink> */}
 
       
         {/* <button className="signup">Sign Up</button> */}
-      {/* {auth ? <NavLink  to="/register"><button  className="btnone">Logout</button></NavLink> : <NavLink to="/register" ><button className="btnone">Regiter</button></NavLink>
-}   */}
+        <li>
+     
+       {auth ?<NavLink  to="/register"><button  onClick={logoutfunc} className="btnone">Logout</button></NavLink> : 
+    //  <NavLink  to="/register"  onClick={logoutfunc} >Logout</NavLink> :
+      // <NavLink to="/login"><button className="btnone">Login</button></NavLink>
+      <NavLink to="/login" ><button  className="btnone">login</button></NavLink> 
+  }
+      </li>  
+{/* <NavLink to="/login">Login</NavLink> */}
       
-        
-{/* <NavLink to="/"><button className="btnone">Login</button></NavLink> */}
+      
+    
+      {/* */}
+   
+
+  
+    
+    
+         
+  
+
+
+
+
+
 
         <div
                     onClick={() => setCount(!count)}
@@ -89,7 +124,7 @@ function DisplayRoute() {
 
       
 
-    
+        
           <div className="routeparent">
         <li><NavLink to="/"  >Home</NavLink></li>
       
@@ -169,8 +204,7 @@ function DisplayRoute() {
      </li>
 
           </div>
-
-
+        
 
 
 
@@ -187,7 +221,7 @@ function DisplayRoute() {
 <div className={count ? 'hambergerlinksShows' : 'hambergerlinksHide'}>
               <ul className="navbar-listResponsive">
                 <li className="listresponsive">
-                  <NavLink onClick={() => setCount(!count)} to="/home" className="navlinkResponsive">
+                  <NavLink onClick={() => setCount(!count)} to="/" className="navlinkResponsive">
                     Home
                   </NavLink>
                 </li>
@@ -231,55 +265,31 @@ function DisplayRoute() {
      
 
         <Routes>
-          {/* <Route element={<PrivateCompo/>}> */}
+          
+          <Route element={<PrivateCompo/>}>
           <Route path="/" element={<HomeCompo />}></Route>
-
-
-
           <Route path="/groceries" element={<GroceriesCompo />}> </Route>
           <Route path="groceries/tea" element={<TeaCompo />}></Route>
           <Route path="groceries/coffee" element={<CoffeCompo />}></Route>
-
-
-
-
-
           <Route path="/fashion" element={<FashionCompo />}> </Route>
-
           <Route path="fashion/men" element={<MenCompo />}></Route>
           <Route path="fashion/women" element={<WomenCompo />}></Route>
-
-
-
-
           <Route path="/premium" element={<PremiumCompo />}> </Route>
-
           <Route path="premium/pears" element={<PearCompo />}></Route>
           <Route path="premium/apple" element={<AppleCompo />}></Route>
-
-
-
-
           <Route path="/sport" element={<SportToyCompo />}>  </Route>
           <Route path="sport/toy" element={<ToyCompo />}></Route>
           <Route path="sport/babytoy" element={<BabyToyCompo />}></Route>
-
-
-
-
-          <Route path="/addcard" element={<AddCard />}></Route>
-
+          <Route path="/addcard/:id" element={<Cart/>}></Route>
           <Route path="/details/:id" element={<DetailsCompo />}></Route>
-
-
-          {/* </Route> */}
+          </Route>
 
 
 
 
           <Route path="/login" element={<LoginButton />}></Route>
           <Route path="/register" element={<RegisterButton />}></Route>
-          <Route path="/logout" element={<LogOut/>}></Route>
+          <Route path="/logout" element={<LogOut/>}></Route> 
         </Routes>
 
 
@@ -295,7 +305,7 @@ function DisplayRoute() {
 
 
 
-      </BrowserRouter>
+      {/* </BrowserRouter> */}
 
 
 

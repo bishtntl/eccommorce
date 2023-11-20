@@ -1,7 +1,10 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import "./register.css"
+
+
+const token=localStorage.getItem("token")
 
 function RegisterButton(){
 
@@ -22,24 +25,50 @@ function RegisterButton(){
     }
     
 
+    useEffect(()=>{
+     
+      if(token){
+        Navi('/')
+      }
+    })
     
 
   const handleSubmit =(e)=>{
           e.preventDefault()
   
 
-        
+          if(data.name.length ===0 ){
+            alert("Name field must have max 10 characters long");
+            Navi('/register')
+          }else if(( data.email.length === 0 || data.email.length>25)){
+            alert("email field must have min 6 and max 15 characters long");
+            Navi('/register');             
+          }else if(data.password.length===0 || data.password.length>15){
+            alert("password field must have min 6 and max 10 characters long");
+            Navi('/register')
+          }else if(data.phone.length ===0 || data.phone.length>10){
+            alert("phoneNo. must have 10characters long");
+                  Navi('/register')
+          }
+           
+
+        else{
             axios.post("http://localhost:5050/api/register",data)
             .then((res)=>{
              alert(res.data.msg)
              setData(res.data)
-          if (res.data.token) {
-            localStorage.setItem('token', res.data.token);
-          }
-    
-          Navi("/login");
+             localStorage.setItem('token', res.data.token);
+             console.log(res.data.token)
+             if(res.data.msg==="user already registered with this email"){
+              Navi("/register")
+             }else if(res.data.token){
+              Navi("/login")
+             }
+             
         })
+      
         .catch((err) => console.log(err,"axios error"));
+      }
 
             setData({
                 name:"",
@@ -48,20 +77,6 @@ function RegisterButton(){
                 password:""
               })
           console.log(data)
-
-
-         
-
-
-          // useEffect(()=>{
-          //   const auth=localStorage.getItem("token")
-
-          //   if(token){
-          //     Navi('/')
-          //   }
-          // })
-        
-
   }
 
 return(
@@ -74,8 +89,8 @@ return(
         </div>
         <div className="under_div">
           <h1 className="create_acc" style={{color:'gray'}}>Create Account</h1>
-    <form  onSubmit={handleSubmit}>
-    {/* action="/" method="POST" */}
+    <form  action="/" method="POST" onSubmit={handleSubmit}>  
+    {/* */}
         
         <label htmlFor="name" className="name">Name</label>
         <input type="text" id="name" name="name" placeholder="Enter your name" value={data.name} autoComplete="off" onChange={changeHandle} className="nameinput"/><br/>
