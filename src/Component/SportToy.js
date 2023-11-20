@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
 import '../Css/Sport.css'
-import { NavLink, useNavigate } from "react-router-dom"
+import { NavLink} from "react-router-dom"
 import FooterCompo from "./Footer"
 import { useDispatch } from "react-redux"
 import { addtoCart } from "../Redux/Slice"
@@ -8,9 +8,7 @@ import { addtoCart } from "../Redux/Slice"
 function SportToyCompo(){
     const [data,setData]=useState([])
     const dispatch=useDispatch()
-    // const token=localStorage.getItem("token")
-    // const Navi=useNavigate()
-
+   
     useEffect (()=>{
         
             async function fetchapi (){
@@ -18,13 +16,10 @@ function SportToyCompo(){
                 const res= await ffdata.json()
                 setData(res)
            }
-           fetchapi()
-         
+           fetchapi()    
     })
     return(
-
         <>
-
 <div className="sport_container">
         {data.filter((item)=>item.id===48).map((item,index)=>{
          return(
@@ -34,13 +29,6 @@ function SportToyCompo(){
          )
         })}
      </div>
-
-
-
-
-
-
-
         <div className="image_sport_container"> 
           {data.filter((item)=>item.category==="sport").map((item,index)=>{
              const {
@@ -54,10 +42,8 @@ function SportToyCompo(){
                 <>
                 <div key={index} className="underdiv_sport">
                 <NavLink to={`/details/${item.id}`}>         <img src={item.image} alt="Not Found"  className="all_images_sport"/></NavLink>
-
                 <div className="underdiv_sport_two">
                 <span className="price_sport"> ₹:{item.price}.00</span>
-                    {/* <h3 className="titel_sport">{item.heading}</h3> */}
                     <NavLink to={`/addcard/${item.id}`}>  <button className="btnaddcard_sport" onClick={()=>dispatch(addtoCart({id,price,image,name}))} >add to cart</button></NavLink>
                 </div>
                    

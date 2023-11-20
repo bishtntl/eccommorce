@@ -1,30 +1,20 @@
 import { useEffect, useState } from "react"
 import '../Css/Premium.css'
-import { NavLink, useNavigate } from "react-router-dom"
+import { NavLink} from "react-router-dom"
 import { useDispatch } from "react-redux"
 import { addtoCart } from "../Redux/Slice"
 
 function PremiumCompo(){
     const [data,setData]=useState([])
     const dispatch=useDispatch()
-    // const token=localStorage.getItem("token")
-    // const Navi =useNavigate()
     useEffect (()=>{
-
-  
         async function fetchapi (){
             const ffdata= await fetch ("http://localhost:5050/api/getdata")
             const res= await ffdata.json()
             setData(res)
        }
-       fetchapi()
-    
-
-        
+       fetchapi()     
     })
-
-
-
     return(
         <>
         <div className="premium_container">
@@ -36,17 +26,6 @@ function PremiumCompo(){
             )
            })}
         </div>
-
-
-
-
-
-
-
-
-
-
-
         <div className="image_premium_container">
           {data.filter((item)=>item.category==="premium").map((item,index)=>{
             const {
@@ -54,37 +33,21 @@ function PremiumCompo(){
                 name=item.name,
                 image = item.image,
                 price= parseInt(item.price),
-             
               }= item;
             return(
                 <>
                 <div key={index} className="underdiv_premium">
                 <NavLink to={`/details/${item.id}`}>    <img src={item.image} alt="Not Found"  className="all_images_premium"/></NavLink>
-
                 <div className="underdiv_premium_two">
                 <span className="price_premium">₹:{item.price}.00</span>
                     <h2 className="title_premium">{item.name}</h2>
-                    {/* <h3>{item.heading.slice(0,15)}</h3> */}
                     <NavLink to={`/addcard/${item.id}`}>  <button onClick={()=>dispatch(addtoCart({id,price,image,name}))} className="btnaddcard_premium">add to cart</button></NavLink>
                 </div>
-                 
-
                 </div>
-
                 </>
             )
           })}
-
         </div>
-        
-
-
-
-
-
-
-
-
         <div className="footermain_premium">
 
 <div className="logosdtl">

@@ -1,15 +1,13 @@
 import { useEffect, useState} from "react"
 import '../Css/Fashion.css'
-import { NavLink, useNavigate } from "react-router-dom"
+import { NavLink} from "react-router-dom"
 import FooterCompo from "./Footer"
 import { useDispatch } from "react-redux"
 import { addtoCart } from "../Redux/Slice"
 function GroceriesCompo(){
     const [data,setData]=useState([])
     const dispatch=useDispatch()
-    // const Navi=useNavigate()
-    // const token=localStorage.getItem("token")
-
+  
     useEffect (()=>{
 
  
