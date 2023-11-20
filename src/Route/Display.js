@@ -60,7 +60,7 @@ const  auth=localStorage.getItem("token")
 
 
 const logoutfunc =()=>{
-     localStorage.clear()
+    //  localStorage.clear()
      Navi("/register")
 
 
