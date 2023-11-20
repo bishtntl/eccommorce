@@ -124,7 +124,7 @@ function HomeCompo() {
         <div className="logosdtl">
           <img
             className="logo"
-            src="https://1000logos.net/wp-content/uploads/2016/11/Facebook-logo.png"
+            src="https://sguru.org/wp-content/uploads/2018/02/facebook-logo-png-20.png"
             alt="Not Found"
           />
           <img

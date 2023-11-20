@@ -24,6 +24,7 @@ a {
     width: 20vw;
     border-radius: 15px;
     margin-top: 10px;
+    text-align: center;
 
 }
 
@@ -215,13 +216,19 @@ a {
         width: 25vw;
         height: 5vh;
         position: absolute;
-        left: 35vw;
+        left: 55vw;
         top: 1vh;
         border-radius: 15px;
         /* margin-top: 10px; */
 
     }
+    .loginbtn{
+        display: none;
+    }
 
+    .lgtbtn{
+        display: none;
+    }
     .navbar-listResponsive {
         display: block;
         position: absolute;
@@ -334,25 +341,54 @@ a {
     }
 
     .display {
+        /* border: 8px solid black; */
+        display: block;
+        background-color: aliceblue;
         position: absolute;
         right: 1vw;
-        top: 1vh;
+        top: 2vh;
+        height: 5vh;
     }
 
+    .searchdata {
+        height: 4vh;
+        width: 50vw;
+        height: 5vh;
+        position: absolute;
+        left: 38vw;
+        top: 1vh;
+        border-radius: 15px;
+        /* margin-top: 10px; */
 
+    }
+    .loginbtn{
+        display: none;
+    }
 
+    .lgtbtn{
+        display: none;
+    }
     .navbar-listResponsive {
         display: block;
-        position: fixed;
+        position: absolute;
         right: 0vw;
         top: 5vh;
         line-height: 10vh;
         width: 60vw;
         font-size: 2em;
-        background-color: rgb(174, 238, 238);
+        background-color: azure;
         z-index: 55;
         font-weight: bold;
         border-radius: 20px;
+
+
+    }
+    .signup {
+        position: absolute;
+        left: 65vw;
+        width: 20vw;
+        height: 7vh;
+        border: 2px solid black;
     }
 
 
@@ -369,6 +405,7 @@ a {
 
     .listresponsive {
         display: block;
+        border-bottom: 1px solid gray;
     }
 
     .navlinkResponsive {
@@ -377,19 +414,10 @@ a {
 
 
 
-
     .routeparent {
         display: none;
         /* overflow: hidden; */
     }
-
-
-
-
-
-
-
-
 
 
     .header_main {
@@ -403,37 +431,20 @@ a {
         text-decoration: none;
     }
 
-    .searchdata {
-        height: 4vh;
-        width: 50vw;
-        border-radius: 15px;
-        margin-top: 10px;
-        /* position: absolute;
-    left: 20vw;
-    top: 3vh; */
-
-
-    }
+   
 
     .imageicon {
         position: absolute;
         left: 2px;
         top: 1vh;
-        height: 50px;
+        height: 7vh;
     }
 
-    /* 
-.navlink{
-    color: white;
-    border: 2px solid black; */
-    /* box-sizing: border-box; */
-
-
-    /* } */
+  
     .shop_heading {
         position: absolute;
-        left: 25vw;
-        top: -1vh;
+        left: 11vw;
+        top: 2vh;
         font-size: 2em;
         font-weight: bold;
         color: aliceblue;

@@ -70,7 +70,7 @@ e.preventDefault()
       <input type="password" id="passwordlogin" name="password" placeholder="enter your password" value={user.password} onChange={changeme} className="passwordinput"/><br/><br/>
      
      
-      <button onClick={handle} className="loginbtn">Login</button><br/>
+      <button onClick={handle} className="loginbtn_main">Login</button><br/>
       
       <NavLink to="/register" >go to register page</NavLink>
 

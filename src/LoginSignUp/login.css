@@ -59,9 +59,9 @@ form{
     text-align: center;
 }
 
-.loginbtn{
+.loginbtn_main{
     height: 5vh;
-    width: 10vw;
+    width: 20vw;
     background-color:#1ad1ff;
     font-size: larger;
     font-weight: bold;
