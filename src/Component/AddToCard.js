@@ -8,20 +8,6 @@ function AddCard(){
     const {id} = useParams();
     const newid = parseInt(id)
 
-
-    
-    // useEffect (()=>{
-    //     async function fetchapi (){
-    //          const ffdata= await fetch ("http://localhost:5050/api/fashiondatas")
-    //          const res= await ffdata.json()
-
-    //          setData(res)
-    //     }
-    //     fetchapi()
-    // },[id])
-
-
-
     return(
         <>
         <h1>Add to card</h1>

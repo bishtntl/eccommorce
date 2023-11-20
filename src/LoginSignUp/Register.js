@@ -53,7 +53,7 @@ function RegisterButton(){
            
 
         else{
-            axios.post("http://localhost:5050/api/register",data)
+            axios.post("https://eccommorce-backend.onrender.com/api/register",data)
             .then((res)=>{
              alert(res.data.msg)
              setData(res.data)

@@ -12,7 +12,7 @@ function GroceriesCompo(){
 
  
         async function fetchapi (){
-          const ffdata= await fetch("http://localhost:5050/api/getdata")
+          const ffdata= await fetch("https://eccommorce-backend.onrender.com/api/getdata")
           const res= await ffdata.json()
 
           setData(res)

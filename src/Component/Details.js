@@ -16,7 +16,7 @@ const newid=parseInt(id)
     useEffect (()=>{
         
            
-           axios.get("http://localhost:5050/api/getdata")
+           axios.get("https://eccommorce-backend.onrender.com/api/getdata")
                 .then((res)=>setData(res.data))
                 .catch((err)=>{
                     console.log("error")})              
