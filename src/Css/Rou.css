@@ -210,6 +210,11 @@ a {
         right: 1vw;
         top: 1vh;
     }
+    .serch_icon{
+        position: relative;
+        left: 50vw;
+        
+    }
 
     .searchdata {
         height: 4vh;
@@ -333,6 +338,14 @@ a {
 
 
 @media screen and (min-width:500px) and (max-width:1000px) {
+
+    .serch_icon{
+        position: relative;
+        left: 50vw;
+        
+    }
+
+
 
     .fa-solid {
         display: block;

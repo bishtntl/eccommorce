@@ -5,14 +5,17 @@ import { useDispatch } from "react-redux";
 import { addtoCart } from "../Redux/Slice";
 import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
-
+// import FooterCompo from "./Footer";
+// import "../Css/Groceries.css";
 
 function HomeCompo() {
   const [data, setData] = useState([]);
   const dispatch = useDispatch();
   useEffect(() => {
     async function fetchapi() {
-      const ffdata = await fetch("https://eccommorce-backend.onrender.com/api/getdata");
+      const ffdata = await fetch(
+        "https://eccommorce-backend.onrender.com/api/getdata"
+      );
       const res = await ffdata.json();
       setData(res);
       console.log(res);
@@ -119,12 +122,12 @@ function HomeCompo() {
             );
           })}
       </div>
-
+      
       <div className="footermain_home">
         <div className="logosdtl">
           <img
             className="logo"
-            src="https://sguru.org/wp-content/uploads/2018/02/facebook-logo-png-20.png"
+            src="http://4.bp.blogspot.com/-E9cQt2nvyTc/URusPT5VqnI/AAAAAAAAABw/wU8Q0YrG37M/s1600/facebook+logo+3.png"
             alt="Not Found"
           />
           <img

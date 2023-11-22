@@ -104,15 +104,32 @@
 .footermain_home{
     background-color: rgba(0, 0, 0, 0.742);
     height: 35vh;
+    width: 100%;
     border-radius: 5px;
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 10px;
     position: relative;
+    /* top: 40vh; */
+    top: 450vh;
+    /* bottom: 0; */
+} 
 
-    top: 420vh;
-}
+
+/* .footermain_groceries{
+    background-color: rgba(0, 0, 0, 0.742);
+    height: 35vh;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    position: relative;
+    bottom: 0;
+    top:545vh;
+} */
+
 
 
 

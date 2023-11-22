@@ -20,11 +20,13 @@ import LoginButton from "../LoginSignUp/Login";
 import RegisterButton from "../LoginSignUp/Register";
 import PrivateCompo from "../Component/Private";
 import LogOut from "../LoginSignUp/Logout";
+import SearchBar from "../Component/Search";
 //
 // import Cart from "../Redux/AddtoCart"
 // import AddtoCart from "../Redux/AddtoCart"
 import { useSelector } from "react-redux";
 import Cart from "../Redux/AddtoCart";
+// import SearchData from "../Component/SearchData";
 
 function DisplayRoute() {
   // const auth=localStorage.getItem("name")
@@ -72,20 +74,18 @@ function DisplayRoute() {
           className="imageicon"
         />
         <span className="shop_heading">Shop Now</span>
-        <input
-          type="text"
-          className="searchdata"
-          placeholder="search item here"
-        />
 
+        <div>
+          {/* <SearchBar /> */}
+          <NavLink to="/search" className="serch_icon">
+            🔍
+          </NavLink>
+        </div>
         <span>
-          <span style={{ fontSize: "1.5em" }}>🛒</span>
+       <NavLink to="addcard/:id"> <span style={{ fontSize: "1.5em" }}>🛒</span>
           <span style={{ color: "whitesmoke" }}>{countItem.length}</span>
+          </NavLink>   
         </span>
-
-        {/* <NavLink to="/register" >  <button className="btnone">Regiter</button></NavLink> */}
-
-        {/* <button className="signup">Sign Up</button> */}
 
         {auth ? (
           <NavLink to="/register">
@@ -95,10 +95,15 @@ function DisplayRoute() {
           </NavLink>
         ) : (
           //  <NavLink  to="/register"  onClick={logoutfunc} >Logout</NavLink> :
-          // <NavLink to="/login"><button className="btnone">Login</button></NavLink>
-          <NavLink to="/login">
-            <button className="btnone loginbtn">login</button>
-          </NavLink>
+          //
+          <span>
+            <NavLink to="/login">
+              <button className="btnone loginbtn">login</button>
+            </NavLink>
+            <NavLink to="/register">
+              <button className="btnone">register</button>
+            </NavLink>
+          </span>
         )}
 
         {/* <NavLink to="/login">Login</NavLink> */}
@@ -274,30 +279,31 @@ function DisplayRoute() {
       {/* **************************************************************** */}
 
       <Routes>
+        <Route path="/" element={<HomeCompo />}></Route>
         <Route element={<PrivateCompo />}>
-          <Route path="/" element={<HomeCompo />}></Route>
           <Route path="/groceries" element={<GroceriesCompo />}>
-            {" "}
+            {/* {" "} */}
           </Route>
           <Route path="groceries/tea" element={<TeaCompo />}></Route>
           <Route path="groceries/coffee" element={<CoffeCompo />}></Route>
           <Route path="/fashion" element={<FashionCompo />}>
-            {" "}
+            {/* {" "} */}
           </Route>
           <Route path="fashion/men" element={<MenCompo />}></Route>
           <Route path="fashion/women" element={<WomenCompo />}></Route>
           <Route path="/premium" element={<PremiumCompo />}>
-            {" "}
+            {/* {" "} */}
           </Route>
           <Route path="premium/pears" element={<PearCompo />}></Route>
           <Route path="premium/apple" element={<AppleCompo />}></Route>
           <Route path="/sport" element={<SportToyCompo />}>
-            {" "}
+            {/* {" "} */}
           </Route>
           <Route path="sport/toy" element={<ToyCompo />}></Route>
           <Route path="sport/babytoy" element={<BabyToyCompo />}></Route>
           <Route path="/addcard/:id" element={<Cart />}></Route>
           <Route path="/details/:id" element={<DetailsCompo />}></Route>
+          <Route path="/search" element={<SearchBar />}></Route>
         </Route>
 
         <Route path="/login" element={<LoginButton />}></Route>
