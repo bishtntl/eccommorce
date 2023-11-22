@@ -53,7 +53,7 @@ function SearchBar() {
             <>
               <div className="underdiv_data">
                 <div>
-                  <img src={item.image} className="image_data" />
+                  <img src={item.image} className="image_data"  alt="Not Found"/>
                 </div>
                 <div className="details_data">
                   <h1>{item.name}</h1>
