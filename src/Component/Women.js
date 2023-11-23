@@ -33,6 +33,12 @@ function PearCompo() {
         {data
           .filter((item) => item.id >= 66 && item.id <= 68)
           .map((item, index) => {
+            const {
+                id = item.id,
+                name = item.name,
+                image = item.image,
+                price = parseInt(item.price),
+              } = item;
             return (
               <div>
                 <div key={index} className="underdiv_women">
