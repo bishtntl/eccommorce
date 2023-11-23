@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import "../Css/AddCart.css";
 import { RemoveItem, IncreaseQuantity, DecreaseQuantity } from "../Redux/Slice";
 import { useNavigate } from "react-router-dom";
+import { loadStripe } from "@stripe/stripe-js";
 
 const Cart = () => {
   const Navi = useNavigate();
@@ -16,6 +17,28 @@ const Cart = () => {
   };
   const handleDecreaseQuantity = (id) => {
     dispatch(DecreaseQuantity({ id }));
+  };
+
+  const handleBuy = async () => {
+    const stripe =await loadStripe("pk_test_51OFfDcSFuYPQ8NkkiTz5ftHV4vxynOQ1qBrVphWeG7zUdAdr0biKAWFhLRGZfedGDI96o3QL1qhPfv6M8J5nkwrr00E5cXKqKc")
+  const body ={
+    products:data
+  }
+  const headers={
+    "Content-Type":"application/json"
+  }
+  const response = await fetch("http://localhost:5050/checkout",{
+          method:"POST",
+          headers:headers,
+          body:JSON.stringify(body)
+  })
+  const session= await response.json();
+  const result =stripe.redirectToCheckout({
+    sessionId:session.id
+  })
+  if(result.error){
+    console.log(result.error)
+  }
   };
   return (
     <>
@@ -53,7 +76,9 @@ const Cart = () => {
                     </div>
                     <div className="btncontainer">
                       <span className="buy">
-                        <button className="buybtn">Buy Now</button>
+                        <button className="buybtn" onClick={handleBuy}>
+                          Buy Now
+                        </button>
                       </span>
                       <span className="cart-subcontent">
                         <h2>{item.model}</h2>

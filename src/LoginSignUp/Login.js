@@ -27,8 +27,8 @@ e.preventDefault()
         .then((res)=>{
             console.log(res)
           alert(res.data.msg) 
-          localStorage.getItem("token",res.data.token)
-          localStorage.getItem("name",res.data.name)
+          localStorage.setItem("token",res.data.token)
+        //   localStorage.setItem("name",res.data.name)
 
         //   if(token){
             navigate('/') 

@@ -26,6 +26,8 @@ import SearchBar from "../Component/Search";
 // import AddtoCart from "../Redux/AddtoCart"
 import { useSelector } from "react-redux";
 import Cart from "../Redux/AddtoCart";
+import Success from "../Redux/Sucess";
+import Cancel from "../Redux/Cancel";
 // import SearchData from "../Component/SearchData";
 
 function DisplayRoute() {
@@ -88,7 +90,7 @@ function DisplayRoute() {
         </span>
 
         {auth ? (
-          <NavLink to="/register">
+          <NavLink to="/login">
             <button onClick={logoutfunc} className="btnone lgtbtn">
               Logout
             </button>
@@ -304,6 +306,8 @@ function DisplayRoute() {
           <Route path="/addcard/:id" element={<Cart />}></Route>
           <Route path="/details/:id" element={<DetailsCompo />}></Route>
           <Route path="/search" element={<SearchBar />}></Route>
+          <Route path="/success" element={<Success/>}></Route>  
+          <Route path="/cancel" element={<Cancel/>}></Route>  
         </Route>
 
         <Route path="/login" element={<LoginButton />}></Route>

@@ -18,7 +18,7 @@ function HomeCompo() {
       );
       const res = await ffdata.json();
       setData(res);
-      console.log(res);
+      // console.log(res);
     }
     fetchapi();
   });
