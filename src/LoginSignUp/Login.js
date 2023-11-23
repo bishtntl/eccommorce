@@ -31,7 +31,7 @@ e.preventDefault()
         //   localStorage.setItem("name",res.data.name)
 
         //   if(token){
-            navigate('/') 
+            navigate('/groceries') 
         //   } else{
            
         //     navigate('/login') 

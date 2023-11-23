@@ -96,7 +96,7 @@ function HomeCompo() {
               <>
                 <div key={index} className="underdiv_home">
                   <NavLink to={`/details/${item.id}`}>
-                    {" "}
+                
                     <img
                       src={item.image}
                       alt="Not Found"
@@ -106,7 +106,7 @@ function HomeCompo() {
                   <div className="underdiv_home_two">
                     <span className="price_home">₹:{item.price}.00</span>
                     <NavLink to={`/addcard/${item.id}`}>
-                      {" "}
+                  
                       <button
                         className="btnaddcard_home"
                         onClick={() =>

@@ -5,14 +5,14 @@ import FashionCompo from "../Component/Fashion";
 import PremiumCompo from "../Component/Premium";
 import SportToyCompo from "../Component/SportToy";
 import "../Css/Rou.css";
-import TeaCompo from "../Component/Sub/Tea";
-import CoffeCompo from "../Component/Sub/Coffee";
-import MenCompo from "../Component/Sub/Men";
-import WomenCompo from "../Component/Sub/Women";
-import PearCompo from "../Component/Sub/pears";
-import AppleCompo from "../Component/Sub/Apple";
-import ToyCompo from "../Component/Sub/Toy";
-import BabyToyCompo from "../Component/Sub/BabyToy";
+import TeaCompo from "../Component/Tea";
+import CoffeCompo from "../Component/Coffee";
+import MenCompo from "../Component/Men";
+import WomenCompo from "../Component/Women";
+import PearCompo from "../Component/pears";
+import AppleCompo from "../Component/Apple";
+import ToyCompo from "../Component/Toy";
+import BabyToyCompo from "../Component/BabyToy";
 // import AddCard from "../Component/AddToCard"
 import DetailsCompo from "../Component/Details";
 import { useState } from "react";
@@ -84,9 +84,11 @@ function DisplayRoute() {
           </NavLink>
         </div>
         <span>
-       <NavLink to="addcard/:id"> <span style={{ fontSize: "1.5em" }}>🛒</span>
-          <span style={{ color: "whitesmoke" }}>{countItem.length}</span>
-          </NavLink>   
+          <NavLink to="addcard/:id">
+            {" "}
+            <span style={{ fontSize: "1.5em" }}>🛒</span>
+            <span style={{ color: "whitesmoke" }}>{countItem.length}</span>
+          </NavLink>
         </span>
 
         {auth ? (
@@ -306,8 +308,8 @@ function DisplayRoute() {
           <Route path="/addcard/:id" element={<Cart />}></Route>
           <Route path="/details/:id" element={<DetailsCompo />}></Route>
           <Route path="/search" element={<SearchBar />}></Route>
-          <Route path="/success" element={<Success/>}></Route>  
-          <Route path="/cancel" element={<Cancel/>}></Route>  
+          <Route path="/success" element={<Success />}></Route>
+          <Route path="/cancel" element={<Cancel />}></Route>
         </Route>
 
         <Route path="/login" element={<LoginButton />}></Route>

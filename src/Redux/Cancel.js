@@ -1,7 +1,7 @@
 function Cancel() {
   return (
     <>
-      <div>Cancel</div>
+      <div className="cancel">Payment Cancel</div>
     </>
   );
 }
