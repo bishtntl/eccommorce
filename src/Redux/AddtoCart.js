@@ -20,25 +20,30 @@ const Cart = () => {
   };
 
   const handleBuy = async () => {
-    const stripe =await loadStripe("pk_test_51OFfDcSFuYPQ8NkkiTz5ftHV4vxynOQ1qBrVphWeG7zUdAdr0biKAWFhLRGZfedGDI96o3QL1qhPfv6M8J5nkwrr00E5cXKqKc")
-  const body ={
-    products:data
-  }
-  const headers={
-    "Content-Type":"application/json"
-  }
-  const response = await fetch("http://localhost:5050/checkout",{
-          method:"POST",
-          headers:headers,
-          body:JSON.stringify(body)
-  })
-  const session= await response.json();
-  const result =stripe.redirectToCheckout({
-    sessionId:session.id
-  })
-  if(result.error){
-    console.log(result.error)
-  }
+    const stripe = await loadStripe(
+      "pk_test_51OFfDcSFuYPQ8NkkiTz5ftHV4vxynOQ1qBrVphWeG7zUdAdr0biKAWFhLRGZfedGDI96o3QL1qhPfv6M8J5nkwrr00E5cXKqKc"
+    );
+    const body = {
+      products: data,
+    };
+    const headers = {
+      "Content-Type": "application/json",
+    };
+    const response = await fetch(
+      "https://eccommorce-backend.onrender.com/checkout",
+      {
+        method: "POST",
+        headers: headers,
+        body: JSON.stringify(body),
+      }
+    );
+    const session = await response.json();
+    const result = stripe.redirectToCheckout({
+      sessionId: session.id,
+    });
+    if (result.error) {
+      console.log(result.error);
+    }
   };
   return (
     <>
