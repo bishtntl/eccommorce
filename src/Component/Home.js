@@ -171,7 +171,7 @@ function HomeCompo() {
           <p style={{ color: "white", fontSize: "1.1em" }}>
             Click On This Link
           </p>
-          <NavLink to="/home" className="navlink">
+          <NavLink to="/" className="navlink">
             Home
           </NavLink>
           <NavLink to="/groceries" className="navlink">

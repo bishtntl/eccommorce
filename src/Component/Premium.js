@@ -71,7 +71,7 @@ function PremiumCompo(){
 
     <div className="gotonavdtl">
 <p style={{color:'white', fontSize:'1.1em'}}>Click On This Link</p>
-<NavLink to="/home"  className="navlink" >Home</NavLink>
+<NavLink to="/"  className="navlink" >Home</NavLink>
 <NavLink to="/groceries"  className="navlink" >Groceries</NavLink>
 <NavLink to="/fashion"  className="navlink"  >Fashion</NavLink>
 <NavLink to="/premium" className="navlink" >Premium</NavLink>  
