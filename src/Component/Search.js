@@ -20,6 +20,7 @@ function SearchBar() {
     setResults(data);
   };
 
+  console.log(results)
   return (
     <>
       <div className="search_data">
@@ -51,7 +52,7 @@ function SearchBar() {
 
           return (
             <>
-              <div className="underdiv_data">
+              <div className="underdiv_data" key={index}>
                 <div>
                   <img src={item.image} className="image_data"  alt="Not Found"/>
                 </div>

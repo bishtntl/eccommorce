@@ -2,11 +2,14 @@ import {  NavLink, useNavigate, useParams } from "react-router-dom"
 import { useEffect, useState} from "react"
 import '../Css/Display.css'
 import FooterCompo from "./Footer"
-import axios from "axios"
+import axios from "axios";
+import { useDispatch } from "react-redux";
+import { addtoCart } from "../Redux/Slice";
 
 function DetailsCompo(){
     const [data,setData]=useState([])
-  const Navi=useNavigate()
+  const Navi=useNavigate();
+  const dispatch = useDispatch();
 
 
 const {id}=useParams()
@@ -30,6 +33,12 @@ const newid=parseInt(id)
 
         <div className="details_wrrraper">
        {data.filter((item)=>item.id===newid).map((item,index)=>{
+        const {
+            id = item.id,
+            name = item.name,
+            image = item.image,
+            price = parseInt(item.price),
+          } = item;
         return(
             <div key={index} className="details_first_div">
        <img src={item.image} alt="Not Found"  className="all_images_details"/>
@@ -41,7 +50,9 @@ const newid=parseInt(id)
                    
                    
                     <p className="moredetails"> <h1>Discreption</h1>{item.para}</p>
-                    <NavLink to="/addcard"><button className="btnaddcard_details">add to card</button></NavLink></div>
+                    <NavLink to={`/addcard/${item.id}`}><button className="btnaddcard_details"   onClick={() =>
+                          dispatch(addtoCart({ id, price, image, name }))
+                        }>add to card</button></NavLink></div>
                
             </div>
         )
