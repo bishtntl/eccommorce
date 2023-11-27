@@ -7,7 +7,7 @@ const FooterCompo = () => {
         <div className="logosdtl">
           <img
             className="logo"
-            src="https://1000logos.net/wp-content/uploads/2016/11/Facebook-logo.png"
+            src="http://4.bp.blogspot.com/-E9cQt2nvyTc/URusPT5VqnI/AAAAAAAAABw/wU8Q0YrG37M/s1600/facebook+logo+3.png"
             alt="Not Found"
           />
           <img
