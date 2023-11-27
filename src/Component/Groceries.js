@@ -76,26 +76,26 @@ function GroceriesCompo(){
        
         <div className="footermain_groceries">
 
-<div className="logosdtl">
-    <img className="logo" src="https://sguru.org/wp-content/uploads/2018/02/facebook-logo-png-20.png" alt="Not Found" />
-    <img className="logo" src="http://1000logos.net/wp-content/uploads/2017/02/New-Instagram-logo.jpg" alt="Not Found" />
-    <img className="logo" src="https://www.aps.edu/sapr/images/pnglot.comtwitterbirdlogopng139932.png/image" alt="Not Found" />
-    <img className="logo" src="https://sguru.org/wp-content/uploads/2018/02/Logo-LinkedIn-Round.png" alt="Not Found" />
+<div className="logosdtl_groceries">
+    <img className="logo_groceries" src="https://sguru.org/wp-content/uploads/2018/02/facebook-logo-png-20.png" alt="Not Found" />
+    <img className="logo_groceries" src="http://1000logos.net/wp-content/uploads/2017/02/New-Instagram-logo.jpg" alt="Not Found" />
+    <img className="logo_groceries" src="https://www.aps.edu/sapr/images/pnglot.comtwitterbirdlogopng139932.png/image" alt="Not Found" />
+    <img className="logo_groceries" src="https://sguru.org/wp-content/uploads/2018/02/Logo-LinkedIn-Round.png" alt="Not Found" />
 
 
     </div>
-    <div className="location">  <img className="logoonedtl" src="https://tse2.mm.bing.net/th?id=OIP.jI9rruGSAQNGmMicjyVJFAHaI7&pid=Api&P=0&h=180" alt="Not Found" /></div> <span className="locdtl">Gurgaon Haryana</span>
+    <div className="location_groceries">  <img className="logoonedtl" src="https://tse2.mm.bing.net/th?id=OIP.jI9rruGSAQNGmMicjyVJFAHaI7&pid=Api&P=0&h=180" alt="Not Found" /></div> <span className="locdtl_groceries">Gurgaon Haryana</span>
 
 
 
 
-    <img className="logoonephonedtl" src="https://tse2.mm.bing.net/th?id=OIP.MT6QS99KpW4roKRd3i1G7QHaHa&pid=Api&P=0&h=180" alt="Not Found" /><span className="phodtl">123467890</span>
+    <img className="logoonephonedtl_groceries" src="https://tse2.mm.bing.net/th?id=OIP.MT6QS99KpW4roKRd3i1G7QHaHa&pid=Api&P=0&h=180" alt="Not Found" /><span className="phodtl_groceries">123467890</span>
 
 
-    <img className="logoonemaildtl" src="https://cdn5.vectorstock.com/i/1000x1000/12/04/mail-icon-in-flat-style-email-symbol-in-flat-style-vector-28061204.jpg" alt="Not Found" /><span className="emaildtl">balambisht467@gmail.com</span>
+    <img className="logoonemaildtl_groceries" src="https://cdn5.vectorstock.com/i/1000x1000/12/04/mail-icon-in-flat-style-email-symbol-in-flat-style-vector-28061204.jpg" alt="Not Found" /><span className="emaildtl_groceries">balambisht467@gmail.com</span>
 
 
-    <div className="gotonavdtl">
+    <div className="gotonavdtl_groceries">
 <p style={{color:'white', fontSize:'1.1em'}}>Click On This Link</p>
 <NavLink to="/"  className="navlink" >Home</NavLink>
 <NavLink to="/groceries"  className="navlink" >Groceries</NavLink>

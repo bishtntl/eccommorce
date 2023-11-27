@@ -96,17 +96,16 @@ function HomeCompo() {
               <>
                 <div key={index} className="underdiv_home">
                   <NavLink to={`/details/${item.id}`}>
-                
                     <img
                       src={item.image}
                       alt="Not Found"
                       className="all_images_home"
                     />
                   </NavLink>
+
                   <div className="underdiv_home_two">
                     <span className="price_home">₹:{item.price}.00</span>
                     <NavLink to={`/addcard/${item.id}`}>
-                  
                       <button
                         className="btnaddcard_home"
                         onClick={() =>
@@ -122,52 +121,52 @@ function HomeCompo() {
             );
           })}
       </div>
-      
+
       <div className="footermain_home">
-        <div className="logosdtl">
+        <div className="logosdtl_home">
           <img
-            className="logo"
+            className="logo_home"
             src="http://4.bp.blogspot.com/-E9cQt2nvyTc/URusPT5VqnI/AAAAAAAAABw/wU8Q0YrG37M/s1600/facebook+logo+3.png"
             alt="Not Found"
           />
           <img
-            className="logo"
+            className="logo_home"
             src="http://1000logos.net/wp-content/uploads/2017/02/New-Instagram-logo.jpg"
             alt="Not Found"
           />
           <img
-            className="logo"
+            className="logo_home"
             src="https://www.aps.edu/sapr/images/pnglot.comtwitterbirdlogopng139932.png/image"
             alt="Not Found"
           />
           <img
-            className="logo"
+            className="logo_home"
             src="https://sguru.org/wp-content/uploads/2018/02/Logo-LinkedIn-Round.png"
             alt="Not Found"
           />
         </div>
-        <div className="location">
+        <div className="location_home">
           {" "}
           <img
-            className="logoonedtl"
+            className="logoonedtl_home"
             src="https://tse2.mm.bing.net/th?id=OIP.jI9rruGSAQNGmMicjyVJFAHaI7&pid=Api&P=0&h=180"
             alt="Not Found"
           />
         </div>{" "}
-        <span className="locdtl">Gurgaon Haryana</span>
+        <span className="locdtl_home">Gurgaon Haryana</span>
         <img
-          className="logoonephonedtl"
+          className="logoonephonedtl_home"
           src="https://tse2.mm.bing.net/th?id=OIP.MT6QS99KpW4roKRd3i1G7QHaHa&pid=Api&P=0&h=180"
           alt="Not Found"
         />
-        <span className="phodtl">123467890</span>
+        <span className="phodtl_home">123467890</span>
         <img
-          className="logoonemaildtl"
+          className="logoonemaildtl_home"
           src="https://cdn5.vectorstock.com/i/1000x1000/12/04/mail-icon-in-flat-style-email-symbol-in-flat-style-vector-28061204.jpg"
           alt="Not Found"
         />
-        <span className="emaildtl">balambisht467@gmail.com</span>
-        <div className="gotonavdtl">
+        <span className="emaildtl_home">balambisht467@gmail.com</span>
+        <div className="gotonavdtl_home">
           <p style={{ color: "white", fontSize: "1.1em" }}>
             Click On This Link
           </p>

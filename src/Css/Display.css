@@ -262,7 +262,8 @@ a {
     /* border: 2px solid black; */
     width: 95%;
     min-height: 100vh;
-    margin: auto;
+    /* margin: auto; */
+    margin-top: 20px;
     background-color: rgb(215, 230, 230);
     border-radius: 20px;
   }
@@ -307,9 +308,10 @@ a {
   }
 
   .all_images_details {
-    height: 40vh;
+    height: 50vh;
     width: 90vw;
     margin-left: 2vw;
+    margin-top: 2vh;
   }
   .moredetails {
     width: 90vw;
@@ -470,7 +472,7 @@ a {
   .logoonephonedtl {
     height: 3vh;
     position: relative;
-    right: 41vw;
+    right: 46vw;
     top: -2vh;
     color: aliceblue;
     background-color: aqua;
@@ -488,7 +490,7 @@ a {
   .logoonemaildtl {
     height: 3vh;
     position: relative;
-    right: 50vw;
+    right: 54vw;
     top: 6vh;
   }
 
@@ -503,19 +505,66 @@ a {
 }
 
 @media screen and (min-width: 665px) and (max-width: 1000px) {
+  .details_wrrraper {
+    /* border: 2px solid black; */
+    width: 95%;
+    min-height: 100vh;
+    margin-top: 20px;
+    background-color: rgb(215, 230, 230);
+    border-radius: 20px;
+  }
   .dtltwo {
     width: 90vw;
   }
-
+  .moredetails {
+    width: 70vw;
+    /* left: 28vw; */
+    bottom: 30vh;
+    text-align: center;
+    font-size: 1.5em;
+    /* border: 2px solid black; */
+  }
+  .title_details {
+    font-size: 2.5em;
+    text-align: center;
+  }
   .main {
     width: 99vw;
   }
+  .btnaddcard_details {
+    width: 50vw;
+    border-radius: 20px;
+    height: 6vh;
+    font-size: 2em;
+  }
+  .heading_details {
+    font-size: 1.8em;
+    width: 70%;
+    font-weight: bold;
+    /* position: relative; */
+    text-align: center;
+    left: 5vw;
+    top: 10vw;
+    /* border: 2px solid black; */
+  }
 
+  .all_images_details {
+    height: 60vh;
+    width: 80vw;
+    margin-left: 2vw;
+  }
   .detailsimage {
     height: 40vh;
     width: 250vw;
     position: relative;
     top: 5vh;
+  }
+  .underdiv_details {
+    display: flex;
+    flex-direction: column;
+    /* border: 2px solid black; */
+    justify-content: center;
+    align-items: center;
   }
   .dtl {
     border-radius: 20px;
@@ -611,7 +660,17 @@ a {
     height: 10vh;
     width: 60vw;
   }
-
+  .details_first_div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    /* width: 80vw; */
+    /* border: 2px solid black; */
+    margin-top: 20px;
+    /* justify-content: center; */
+  }
   .footermain {
     background-color: rgba(0, 0, 0, 0.742);
     height: 39vh;
@@ -641,7 +700,7 @@ a {
   .logoonedtl {
     height: 5vh;
     position: relative;
-    left: -2vw;
+    left: -5vw;
     top: 1vh;
   }
 
@@ -663,7 +722,7 @@ a {
   .logoonephonedtl {
     height: 4vh;
     position: relative;
-    right: 36vw;
+    right: 37vw;
     top: -2vh;
     color: aliceblue;
     background-color: aqua;
@@ -683,7 +742,7 @@ a {
     height: 5vh;
     position: relative;
     right: 43.5vw;
-    top: 8vh;
+    top: 9vh;
   }
 
   .emaildtl {
@@ -691,7 +750,7 @@ a {
     position: absolute;
     color: whitesmoke;
     font-size: 1em;
-    top: 25vh;
+    top: 27vh;
     left: 11vw;
   }
 }
