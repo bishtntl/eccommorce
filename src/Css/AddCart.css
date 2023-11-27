@@ -109,9 +109,10 @@
     font-size: 1.5em;
     font-family: "Courier New", Courier, monospace;
     font-weight: bold;
-    width: 50vw;
+    width: 60vw;
     height: 10vh;
     text-align: center;
+    /* border: 2px solid black; */
   }
   .remove-cart {
     height: 5vh;
@@ -129,12 +130,12 @@
   .buy {
     margin-top: 5vh;
     text-align: center;
-
+    right: 40vw;
     width: 10vw;
   }
   .buybtn {
     height: 5vh;
-    width: 25vw;
+    width: 40vw;
   }
   .addsubbtn {
     text-align: center;
@@ -182,6 +183,7 @@
   }
 
   .gobackaddcart {
+    margin-top: 20px;
     width: 50vw;
     height: 8vh;
   }
@@ -197,7 +199,7 @@
     font-size: 1.5em;
     font-family: "Courier New", Courier, monospace;
     font-weight: bold;
-    width: 50vw;
+    width: 70vw;
     height: 10vh;
     text-align: center;
     /* border: 2px solid black; */
