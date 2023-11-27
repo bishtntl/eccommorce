@@ -13,6 +13,8 @@
   width: 50vw;
   height: 10vh;
   text-align: right;
+  position: relative;
+  /* border: 2px solid black; */
 }
 .remove-cart {
   height: 5vh;
@@ -32,10 +34,15 @@
   text-align: center;
   /* border: 2px solid black; */
   width: 10vw;
+  position: absolute;
+  right: 15px;
+  bottom: 1.5px;
 }
 .buybtn {
   height: 5vh;
   width: 10vw;
+  font-weight: bold;
+  background-color: rgb(109, 109, 216);
 }
 .addsubbtn {
   text-align: center;

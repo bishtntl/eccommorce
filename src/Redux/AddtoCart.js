@@ -80,11 +80,7 @@ const Cart = () => {
                       </button>
                     </div>
                     <div className="btncontainer">
-                      <span className="buy">
-                        <button className="buybtn" onClick={handleBuy}>
-                          Buy Now
-                        </button>
-                      </span>
+                      
                       <span className="cart-subcontent">
                         <h2>{item.model}</h2>
                         <button
@@ -104,7 +100,13 @@ const Cart = () => {
         <div className="total">
           <span>Total : </span>
           <span style={{ color: "blue" }}>{total}.00</span>
+          <div className="buy">
+                        <button className="buybtn" onClick={handleBuy}>
+                          Buy Now
+                        </button>
+                      </div>
         </div>
+        
       </div>
 
       <div className="gobackcart">
