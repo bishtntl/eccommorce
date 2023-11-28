@@ -14,7 +14,7 @@ function SearchBar() {
   };
 
   const handleSubmit = async () => {
-    const response = await fetch(`http://localhost:5050/search/${query}`);
+    const response = await fetch(`https://eccommorce-backend.onrender.com/${query}`);
     const data = await response.json();
 
     setResults(data);
