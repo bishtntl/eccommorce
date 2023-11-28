@@ -115,8 +115,9 @@
     /* border: 2px solid black; */
   }
   .remove-cart {
-    height: 5vh;
-    width: 25vw;
+    height: 7vh;
+    width: 50vw;
+    /* border: 2px solid black; */
   }
 
   .cart-subcontent {

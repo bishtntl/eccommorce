@@ -146,7 +146,7 @@ function RegisterButton() {
             Register
           </button>
           <br />
-          <NavLink to="/login">go to register page</NavLink>
+          <NavLink to="/login">go to login page</NavLink>
         </form>
       </div>
     </div>
